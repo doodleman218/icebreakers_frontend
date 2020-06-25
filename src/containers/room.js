@@ -6,10 +6,14 @@ export class room extends Component {
  
   handleEndGame = () => {
     localStorage.removeItem('token')
-    
-    // remove user
+      const reqObj = {
+        method: "DELETE"
+      }
+      fetch(`http://localhost:3000/room/${this.props.match.params.id}`, reqObj)
+          .then((resp) => resp.json())
     this.props.history.push('/create_room')
   }
+
 
   handleLogOut = () => {
     localStorage.removeItem('token')
@@ -18,6 +22,7 @@ export class room extends Component {
   }
   
   render() {
+    console.log(this.props)
     return (
       <div>
         this is a room

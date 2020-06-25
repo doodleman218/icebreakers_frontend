@@ -26,8 +26,9 @@ export class createRoom extends Component {
     fetch("http://localhost:3000/rooms", reqObj)
     .then(resp => resp.json())
     .then(room => {
-      localStorage.setItem("token", room.jwt)
       console.log(room)
+      localStorage.setItem("token", room.jwt)
+      // something here?
       this.props.history.push(`/room/${room.room.id}`)
     })
     this.setState({room_name: '', password: '', username: ''})

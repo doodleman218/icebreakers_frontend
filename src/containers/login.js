@@ -5,6 +5,7 @@ export class login extends Component {
   state = {
     room_name: '',
     password: '',
+    username: ''
   }
 
   handleChange = (event) => {
@@ -21,12 +22,13 @@ export class login extends Component {
       },
       body: JSON.stringify(this.state)
     }
-    fetch("http://localhost:3000/rooms", reqObj)
+    fetch("http://localhost:3000/", reqObj)
     .then(resp => resp.json())
     .then(room => {
-      this.props.history.push('/create_user')
+      localStorage.setItem("token", room.jwt)
+      this.props.history.push(`/room/${room.room.id}`)
     })
-    this.setState({room_name: '', password: ''})
+    this.setState({room_name: '', password: '', username: ''})
   }
 
   render() {
@@ -38,7 +40,9 @@ export class login extends Component {
         <input name='room_name' value={this.state.room_name} onChange={this.handleChange} />
         password:
         <input name='password' type='password' value={this.state.password} onChange={this.handleChange} />
-        <button type='submit'>Create your Room</button>
+        create username:
+        <input name='username' value={this.state.username} onChange={this.handleChange} />
+        <button type='submit'>Join a Room</button>
         </form>
       </div>
     )
