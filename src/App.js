@@ -8,13 +8,14 @@ import { createBrowserHistory } from 'history'
 import Login from './containers/login'
 import Room from './containers/room'
 import CreateRoom from './containers/createRoom'
+import CreateUser from './containers/createUser'
 
 function App() {
   return (
-    <Router>
+    <Router >
       <div className="App">
       <Route exact path="/" component={Login}/>
-      <Route exact path="/room" component={Room}/>
+      <Route exact path="/room/:id" component={Room}/>
       <Route exact path="/create_room" component={CreateRoom}/>
       </div>
     </Router>
