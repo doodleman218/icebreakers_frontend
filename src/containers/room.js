@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react';
+import { ActionCable } from 'react-actioncable-provider';
+import Cable from '../components/Cable';
 
-export class room extends Component {
+export class room extends React.Component {
   
- 
  
   handleEndGame = () => {
     localStorage.removeItem('token')
@@ -12,6 +13,11 @@ export class room extends Component {
       fetch(`http://localhost:3000/room/${this.props.match.params.id}`, reqObj)
           .then((resp) => resp.json())
     this.props.history.push('/create_room')
+  }
+
+
+  handleReceived = resp => {
+    console.log("hello")
   }
 
 
@@ -28,6 +34,18 @@ export class room extends Component {
         this is a room
         <button onClick={this.handleEndGame}>End Game</button>
         <button onClick={this.handleLogOut}>Log Out</button>
+
+        <ActionCable
+          channel={{ channel: 'RoomsChannel' }}
+          onReceived={this.handleReceived}
+        />
+        
+          <Cable
+            // conversations={conversations}
+            // handleReceivedMessage={this.handleReceivedMessage}
+          />
+        
+
       </div>
     )
   }
