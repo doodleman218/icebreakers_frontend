@@ -7,6 +7,10 @@ export class room extends React.Component {
   state = {
     rooms: []
   }
+
+  componentDidMount(){
+    console.log("did mount")
+  }
   
  
   handleEndGame = () => {
@@ -21,7 +25,7 @@ export class room extends React.Component {
 
 
   handleReceived = resp => {
-    console.log("hello")
+    console.log(resp, "hello")
   }
 
 
@@ -32,7 +36,6 @@ export class room extends React.Component {
   }
   
   render() {
-    console.log(this.props)
     return (
       <div>
         this is a room
@@ -45,7 +48,7 @@ export class room extends React.Component {
         />
         
           <Cable
-          rooms={this.state.rooms}
+          room_id={this.props.match.params.id}
             // handleReceivedMessage={this.handleReceivedMessage}
           />
         
