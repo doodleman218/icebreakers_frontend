@@ -21,7 +21,7 @@ export class createRoom extends Component {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(this.state)
+      body: JSON.stringify({room: this.state})
     }
     fetch("http://localhost:3000/rooms", reqObj)
     .then(resp => resp.json())

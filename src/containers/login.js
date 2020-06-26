@@ -26,6 +26,7 @@ export class login extends Component {
     fetch("http://localhost:3000/", reqObj)
     .then(resp => resp.json())
     .then(room => {
+      console.log(room)
       localStorage.setItem("token", room.jwt)
       this.props.history.push(`/room/${room.room.id}`)
     })
