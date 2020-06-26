@@ -5,11 +5,19 @@ import Cable from '../components/Cable';
 export class room extends React.Component {
 
   state = {
-    rooms: []
+    users: [],
+    questions: []
   }
 
   componentDidMount(){
-    console.log("did mount")
+    // console.log("did mount")
+    fetch("http://localhost:3000/users")
+    .then(resp => resp.json())
+    .then(users => {
+      this.setState({
+        users: users
+      })
+    })
   }
   
  

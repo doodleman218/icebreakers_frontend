@@ -4,16 +4,12 @@ import { ActionCable } from 'react-actioncable-provider';
 const Cable = ({ rooms }) => {
   return (
     <Fragment>
-      {console.log("in cable")}
-      {rooms.map(room => {
-        return (
+      {/* {console.log("in cable", this.props)} */}
           <ActionCable
-          key={room.id}  
-          channel={{ channel: 'UsersChannel', room: room.id }}
-          onReceived={console.log("cable recieved")}
+          // key={this.props.room_id}  
+          // channel={{ channel: 'UsersChannel', room: this.props.room_id }}
+          // onReceived={console.log("cable recieved")}
           />
-        );
-      })}
     </Fragment>
   );
 };
