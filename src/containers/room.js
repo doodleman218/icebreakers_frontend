@@ -3,6 +3,10 @@ import { ActionCable } from 'react-actioncable-provider';
 import Cable from '../components/Cable';
 
 export class room extends React.Component {
+
+  state = {
+    rooms: []
+  }
   
  
   handleEndGame = () => {
@@ -41,7 +45,7 @@ export class room extends React.Component {
         />
         
           <Cable
-            // conversations={conversations}
+          rooms={this.state.rooms}
             // handleReceivedMessage={this.handleReceivedMessage}
           />
         
