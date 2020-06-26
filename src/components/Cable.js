@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react';
-import { ActionCable } from 'react-actioncable-provider';
+import { ActionCableConsumer } from 'react-actioncable-provider';
 
-const Cable = ({ rooms }) => {
+const Cable = ({ room }) => {
   return (
     <Fragment>
-      {/* {console.log("in cable", this.props)} */}
-          <ActionCable
-          // key={this.props.room_id}  
-          // channel={{ channel: 'UsersChannel', room: this.props.room_id }}
-          // onReceived={console.log("cable recieved")}
+      
+      {console.log(room.match.params.id)}
+          <ActionCableConsumer
+          key={room.match.params.id}  
+          channel={{ channel: 'UsersChannel', room: room.match.params.id }}
+          onReceived={console.log("cable recieved")}
           />
     </Fragment>
   );

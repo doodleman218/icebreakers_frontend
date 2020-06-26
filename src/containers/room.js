@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActionCable } from 'react-actioncable-provider';
+import { ActionCableConsumer } from 'react-actioncable-provider';
 import Cable from '../components/Cable';
 
 export class room extends React.Component {
@@ -10,14 +10,14 @@ export class room extends React.Component {
   }
 
   componentDidMount(){
-    // console.log("did mount")
-    fetch("http://localhost:3000/users")
-    .then(resp => resp.json())
-    .then(users => {
-      this.setState({
-        users: users
-      })
-    })
+    console.log("did mount")
+    // fetch("http://localhost:3000/users")
+    // .then(resp => resp.json())
+    // .then(users => {
+    //   this.setState({
+    //     users: users
+    //   })
+    // })
   }
   
  
@@ -50,13 +50,13 @@ export class room extends React.Component {
         <button onClick={this.handleEndGame}>End Game</button>
         <button onClick={this.handleLogOut}>Log Out</button>
 
-        <ActionCable
+        <ActionCableConsumer
           channel={{ channel: 'RoomsChannel' }}
           onReceived={this.handleReceived}
         />
         
           <Cable
-          room_id={this.props.match.params.id}
+          room={this.props}
             // handleReceivedMessage={this.handleReceivedMessage}
           />
         
