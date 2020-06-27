@@ -5,13 +5,12 @@ import Cable from '../components/Cable';
 export class room extends React.Component {
 
   state = {
-    users: [],
-    questions: []
+    current_user: [],
+    current_question: []
   }
 
   componentDidMount(){
     console.log("did mount")
-    console.log(this.props)
     // fetch("http://localhost:3000/users")
     // .then(resp => resp.json())
     // .then(users => {
@@ -35,7 +34,6 @@ export class room extends React.Component {
 
   handleReceived = resp => {
     console.log(resp, "hello")
-    // handleReceived = data => data 
   }
 
 
@@ -53,16 +51,13 @@ export class room extends React.Component {
         <button onClick={this.handleLogOut}>Log Out</button>
 
         <ActionCableConsumer
-          channel={{ channel: 'UsersChannel' }}
+          channel={{ channel: 'RoomsChannel' }}
           onReceived={this.handleReceived}
-          // channel={{channel: 'PlayersChannel', game: this.props.match.params.id}}
-          // wrap all logic in consumer
         />
         
           <Cable
           room={this.props}
             // handleReceivedMessage={this.handleReceivedMessage}
-            // dont need this?
           />
         
 
