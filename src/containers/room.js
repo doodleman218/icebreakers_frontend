@@ -49,15 +49,13 @@ export class room extends React.Component {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ room: this.props.match.params.id  }),
+      body: JSON.stringify({ user:{room: this.props.match.params.id }}),
     }; 
     fetch(`http://localhost:3000/users/test`, reqObj)
-    .then(resp => resp.json())
-    .then(users => console.log("clicked-2", users))
+   
   }
   
   render() {
-    console.log("allo", this.state.number)
     return (
       <div>
         this is a room
