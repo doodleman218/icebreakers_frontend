@@ -6,17 +6,18 @@ import Button from "react-bootstrap/Button";
 export class room extends React.Component {
   state = {
     current_question: [],
-    users: [],
+   
   };
 
   componentDidMount() {
-    fetch("http://localhost:3000/users")
-    .then(resp => resp.json())
-    .then(users => {
-      this.setState({
-        users: users
-      })
-    })
+  console.log("mount",this.props.currentUser)
+    // fetch("http://localhost:3000/users")
+    // .then(resp => resp.json())
+    // .then(users => {
+    //   this.setState({
+    //     users: users
+    //   })
+    // })
   }
 
   handleEndGame = () => {
@@ -53,20 +54,20 @@ export class room extends React.Component {
     fetch(`http://localhost:3000/users/test`, reqObj);
   };
 
-  buttonTest = () => {
-    const currentUser = this.state.users.find( userObj => {
-     return userObj.username === "tim"
-    })
-    console.log(currentUser, "button test")
-    if (currentUser) {
-      return <button onClick={this.handleClick}>BUTTON</button>;
-    } else {
-     return null;
-    }
-  };
+  // buttonTest = () => {
+  //   const currentUser = this.state.users.find( userObj => {
+  //    return userObj.username === "tim"
+  //   })
+  //   console.log(currentUser, "button test")
+  //   if (currentUser) {
+  //     return <button onClick={this.handleClick}>BUTTON</button>;
+  //   } else {
+  //    return null;
+  //   }
+  // };
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div>
         this is a room
@@ -79,9 +80,9 @@ export class room extends React.Component {
           }}
           onReceived={this.handleReceived}
         >
-          {this.buttonTest()}
+          {/* {this.buttonTest()} */}
 
-          {/* <button onClick={this.handleClick}>BUTTON</button> */}
+          <button onClick={this.handleClick}>BUTTON</button>
 
           <Button className="btn btn-default">Primary</Button>
           <Button className="btn btn-default btn-lg"> lg</Button>

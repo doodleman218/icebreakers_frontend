@@ -36,9 +36,9 @@ class App extends React.Component {
     currentUser: ""
   }
 
-  updateUser = () => {
+  updateUser = (user) => {
     this.setState({
-      current = user
+      currentUser: user
     })
   }
   
@@ -46,7 +46,9 @@ class App extends React.Component {
   return (
     <Router >
       <div className="App">
-      <Route exact path="/" component={Login}/>
+      <Route exact path="/" render={ (routeParams) => {
+        return <Login updateUser={this.updateUser} {...routeParams} />
+      }}/>
       <Route exact path="/room/:id" render={ (routeParams) => {
         return <Room currentUser={this.state.currentUser} {...routeParams} />
       }}/>

@@ -28,6 +28,7 @@ export class login extends Component {
     .then(room => {
       console.log(room)
       localStorage.setItem("token", room.jwt)
+      this.props.updateUser(room.user)
       this.props.history.push(`/room/${room.room.id}`)
     })
     this.setState({room_name: '', password: '', username: ''})
