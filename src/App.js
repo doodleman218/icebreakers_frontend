@@ -8,6 +8,7 @@ import { createBrowserHistory } from 'history'
 import Login from './containers/login'
 import Room from './containers/room'
 import CreateRoom from './containers/createRoom'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ActionCableConsumer } from 'react-actioncable-provider';
 import Cable from '../components/Cable';
+import Button from 'react-bootstrap/Button';
 
 export class room extends React.Component {
 
@@ -42,10 +43,17 @@ export class room extends React.Component {
   }
 
   handleClick = () => {
-    console.log("clicked")
-    fetch(`http://localhost:3000/users`)
+    console.log("clicked-1")
+    const reqObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ room: this.props.match.params.id  }),
+    }; 
+    fetch(`http://localhost:3000/users/test`, reqObj)
     .then(resp => resp.json())
-    .then(users => console.log(users))
+    .then(users => console.log("clicked-2", users))
   }
   
   render() {
@@ -57,14 +65,17 @@ export class room extends React.Component {
         <button onClick={this.handleLogOut}>Log Out</button>
 
         <ActionCableConsumer
-          channel={{ channel: 'RoomsChannel', room: this.props.match.params.id }}
+          channel={{ channel: 'UsersChannel', room: this.props.match.params.id }}
+          //userschannel or roomschannel??
           onReceived={this.handleReceived}
         >
          
         <button onClick={this.handleClick}>
           BUTTON
         </button>
-
+        <Button className="btn btn-default" >Primary</Button>
+        <Button className="btn btn-default btn-lg" > lg</Button>
+        <Button className="btn btn-warning" >warning</Button>
         </ActionCableConsumer>
       
       </div>
