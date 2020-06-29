@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Cable from '../components/Cable';
+// import Cable from '../components/Cable';
 
 export class createRoom extends Component {
   
@@ -28,7 +28,9 @@ export class createRoom extends Component {
     .then(room => {
       console.log(room)
       localStorage.setItem("token", room.jwt)
+      // call funtion
       this.props.history.push(`/room/${room.room.id}`)
+      
     })
     this.setState({room_name: '', password: '', username: ''})
   }

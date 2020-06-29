@@ -12,17 +12,51 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-function App() {
+// componentDidMount(){
+  // const token = localStorage.getItem('token')
+  // if (token){
+    // reqObj = {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: 'Bearer ${token}',
+    //   },
+    // }
+    // fetch("http://localhost:3000/users", reqObj)
+    // .then((resp) => resp.json())
+    // .then((data) => {
+
+    // })
+  // }
+// }
+
+class App extends React.Component {
+  
+  state = {
+    currentUser: ""
+  }
+
+  updateUser = () => {
+    this.setState({
+      current = user
+    })
+  }
+  
+  render(){
   return (
     <Router >
       <div className="App">
       <Route exact path="/" component={Login}/>
-      <Route exact path="/room/:id" component={Room}/>
-      <Route exact path="/create_room" component={CreateRoom}/>
-      
+      <Route exact path="/room/:id" render={ (routeParams) => {
+        return <Room currentUser={this.state.currentUser} {...routeParams} />
+      }}/>
+      <Route exact path="/create_room" render={ (routeParams) => {
+        return <CreateRoom updateUser={this.updateUser} {...routeParams} />
+      }}/>
       </div>
     </Router>
   );
+  }
 }
 
 export default App;
