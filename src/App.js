@@ -33,12 +33,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends React.Component {
   
   state = {
-    currentUser: ""
+    currentUser: "",
+    hostID: ""
   }
 
   updateUser = (user) => {
     this.setState({
       currentUser: user
+    })
+  }
+
+  setHost = (host) => {
+    this.setState({
+      hostID: host
+    })
+  }
+
+  updateHost = (host) => {
+    this.setState({
+      hostID: host
     })
   }
   
@@ -47,13 +60,13 @@ class App extends React.Component {
     <Router >
       <div className="App">
       <Route exact path="/" render={ (routeParams) => {
-        return <Login updateUser={this.updateUser} {...routeParams} />
+        return <Login updateUser={this.updateUser} updateHost={this.updateHost} {...routeParams} />
       }}/>
       <Route exact path="/room/:id" render={ (routeParams) => {
-        return <Room currentUser={this.state.currentUser} {...routeParams} />
+        return <Room currentUser={this.state.currentUser} hostID={this.state.hostID} {...routeParams} />
       }}/>
       <Route exact path="/create_room" render={ (routeParams) => {
-        return <CreateRoom updateUser={this.updateUser} {...routeParams} />
+        return <CreateRoom updateUser={this.updateUser} setHost={this.setHost} {...routeParams} />
       }}/>
       </div>
     </Router>
