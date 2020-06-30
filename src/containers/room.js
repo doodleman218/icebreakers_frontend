@@ -43,6 +43,7 @@ export class room extends React.Component {
   };
 
   handleClick = () => {
+    console.log("clicked")
     const reqObj = {
       method: "POST",
       headers: {
