@@ -55,7 +55,7 @@ export class room extends React.Component {
 
   buttonTest = () => {
     console.log(this.props.currentUser, this.props.hostID, "button test")
-    if (this.props.currentUser.username === "tim") {
+    if (this.props.currentUser.id === this.props.hostID) {
       return <button onClick={this.handleClick}>BUTTON</button>;
     } else {
      return null;
