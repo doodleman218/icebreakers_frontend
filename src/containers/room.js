@@ -5,8 +5,8 @@ import Button from "react-bootstrap/Button";
 
 export class room extends React.Component {
   state = {
-    current_question: [],
-   
+    currentQuestion: [],
+    currentPlayer: ""
   };
 
   componentDidMount() {
@@ -39,29 +39,41 @@ export class room extends React.Component {
   };
 
   handleReceived = (resp) => {
-    console.log(resp, "recieved");
+    const currentPlayer = resp
+    this.setState({
+      currentPlayer: currentPlayer
+    })
   };
 
   handleClick = () => {
     console.log("clicked")
     const reqObj = {
-      method: "POST",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user: { room: this.props.match.params.id } }),
+      body: JSON.stringify({ user: { room: this.props.match.params.id, currentPlayer: this.state.currentPlayer } }),
     };
-    fetch(`http://localhost:3000/users/test`, reqObj);
+    fetch(`http://localhost:3000/users/select`, reqObj);
   };
 
-  buttonTest = () => {
-    console.log(this.props.currentUser, this.props.hostID, "button test")
+  hostButton = () => {
+    console.log(this.props.currentUser, this.props.hostID, "host button")
     if (this.props.currentUser.id === this.props.hostID) {
-      return <button onClick={this.handleClick}>BUTTON</button>;
+      return <button onClick={this.handleClick}>HOST BUTTON</button>;
     } else {
      return null;
     }
   };
+
+  playerButton = () => {
+    console.log(this.props.currentUser, this.state.currentPlayer, "player button")
+    if (this.props.currentUser.id === this.state.currentPlayer.id) {
+      return <button onClick={this.handleClick}>PLAYER BUTTON</button>;
+    } else {
+     return null;
+    }
+  }
 
   render() {
     console.log("props", this.props)
@@ -77,7 +89,8 @@ export class room extends React.Component {
           }}
           onReceived={this.handleReceived}
         >
-          {this.buttonTest()}
+          {this.hostButton()}
+          {this.playerButton()}
 
           {/* <button onClick={this.handleClick}>BUTTON</button> */}
 
@@ -92,14 +105,19 @@ export class room extends React.Component {
 
 export default room;
 
-//   {
-//   room_users = users.find((userObj) => {
-//     if (userObj.id)
-//   }
 
-//   )
-// })
+// handleClick = () => {
+//   console.log("clicked")
+//   const reqObj = {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({ user: { room: this.props.match.params.id } }),
+//   };
+//   fetch(`http://localhost:3000/users/test`, reqObj);
+// };
 
-// this.setState({
-//   number: this.state.number + 1
-// })
+// handleReceived = (resp) => {
+//   console.log(resp, "recieved");
+// };
