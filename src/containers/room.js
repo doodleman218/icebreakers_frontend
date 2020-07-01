@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 export class room extends React.Component {
   state = {
     currentQuestion: [],
-    currentPlayer: ""
+    currentPlayer: "tim"
   };
 
   componentDidMount() {
@@ -20,23 +20,7 @@ export class room extends React.Component {
     // })
   }
 
-  handleEndGame = () => {
-    localStorage.removeItem("token");
-    const reqObj = {
-      method: "DELETE",
-    };
-    fetch(
-      `http://localhost:3000/room/${this.props.match.params.id}`,
-      reqObj
-    ).then((resp) => resp.json());
-    this.props.history.push("/create_room");
-  };
-
-  handleLogOut = () => {
-    localStorage.removeItem("token");
-
-    // history.push('/create_room')
-  };
+ 
 
   handleReceived = (resp) => {
     const currentPlayer = resp
@@ -68,7 +52,7 @@ export class room extends React.Component {
 
   playerButton = () => {
     console.log(this.props.currentUser, this.state.currentPlayer, "player button")
-    if (this.props.currentUser.id === this.state.currentPlayer.id) {
+    if (this.props.currentUser.username === this.state.currentPlayer.username) {
       return <button onClick={this.handleClick}>PLAYER BUTTON</button>;
     } else {
      return null;
@@ -93,10 +77,10 @@ export class room extends React.Component {
           {this.playerButton()}
 
           {/* <button onClick={this.handleClick}>BUTTON</button> */}
-
+{/* 
           <Button className="btn btn-default">Primary</Button>
           <Button className="btn btn-default btn-lg"> lg</Button>
-          <Button className="btn btn-warning">warning</Button>
+          <Button className="btn btn-warning">warning</Button> */}
         </ActionCableConsumer>
       </div>
     );
@@ -120,4 +104,24 @@ export default room;
 
 // handleReceived = (resp) => {
 //   console.log(resp, "recieved");
+// };
+
+// {Resp = {type: 'player', player: {}} if (resp.type === 'player)
+
+// handleEndGame = () => {
+//   localStorage.removeItem("token");
+//   const reqObj = {
+//     method: "DELETE",
+//   };
+//   fetch(
+//     `http://localhost:3000/room/${this.props.match.params.id}`,
+//     reqObj
+//   ).then((resp) => resp.json());
+//   this.props.history.push("/create_room");
+// };
+
+// handleLogOut = () => {
+//   localStorage.removeItem("token");
+
+//   // history.push('/create_room')
 // };
