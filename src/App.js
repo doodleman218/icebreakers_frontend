@@ -70,7 +70,7 @@ class App extends React.Component {
         return <Login updateUser={this.updateUser} updateHost={this.updateHost} {...routeParams} />
       }}/>
       <Route exact path="/room/:id" render={ (routeParams) => {
-        return <Room currentUser={this.state.currentUser} gameStarted={this.state.gameStarted} hostID={this.state.hostID} {...routeParams} />
+        return <Room currentUser={this.state.currentUser} startGame={this.startGame} gameStarted={this.state.gameStarted} hostID={this.state.hostID} {...routeParams} />
       }}/>
       <Route exact path="/create_room" render={ (routeParams) => {
         return <CreateRoom updateUser={this.updateUser} setHost={this.setHost} {...routeParams} />

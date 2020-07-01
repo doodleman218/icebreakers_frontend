@@ -4,30 +4,39 @@ import Button from "react-bootstrap/Button";
 
 export class room extends React.Component {
   state = {
-    currentQuestion: "the game will start soon!",
-    currentPlayer: "tim"
+    currentQuestion: "???????????",
+    currentPlayer: "",
+    allUsers: []
   };
 
   componentDidMount() {
-  console.log("mount",this.props.currentUser) 
+    console.log("mount", this.props.currentUser);
   }
 
   handleReceived = (resp) => {
-    console.log(resp)
-    const currentPlayer = resp
+    console.log(resp);
+    if (this.props.gameStarted === false ){
+      {this.props.startGame()}
+    }
+    const currentPlayer = resp;
     this.setState({
-      currentPlayer: currentPlayer.username
-    })
+      currentPlayer: currentPlayer.username,
+    });
   };
 
   handleClick = () => {
-    console.log("clicked")
+    console.log("clicked");
     const reqObj = {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user: { room: this.props.match.params.id, currentPlayer: this.state.currentPlayer } }),
+      body: JSON.stringify({
+        user: {
+          room: this.props.match.params.id,
+          currentPlayer: this.state.currentPlayer,
+        },
+      }),
     };
     fetch(`http://localhost:3000/users/select/foo`, reqObj);
   };
@@ -38,38 +47,63 @@ export class room extends React.Component {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user: { room: this.props.match.params.id, currentPlayer: this.state.currentPlayer } }),
+      body: JSON.stringify({
+        user: {
+          room: this.props.match.params.id
+        },
+      }),
     };
     fetch(`http://localhost:3000/users/start/foo`, reqObj);
-  }
-  
+  };
+
   renderHostButtons = () => {
-    return <div>
-       <button onClick={this.handleClick}>HOST BUTTON</button>;
-       <button onClick={this.handleStartClick}>START GAME</button>;
-    </div>
-  }
+    if (this.props.gameStarted === false) {
+      return (
+        <div>
+          <button onClick={this.handleStartClick}>START GAME</button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button onClick={this.handleClick}>HOST BUTTON</button>
+        </div>
+      );
+    }
+  };
 
   hostButton = () => {
-    console.log(this.props.currentUser, this.props.hostID, "host button")
+    // console.log(this.props.currentUser, this.props.hostID, "host button");
     if (this.props.currentUser.id === this.props.hostID) {
-      return this.renderHostButtons()
+      return this.renderHostButtons();
     } else {
-     return null;
+      return null;
     }
   };
 
   playerButton = () => {
-    console.log(this.props.currentUser, this.state.currentPlayer, "player button")
+    console.log(
+      this.props.currentUser,
+      this.state.currentPlayer,
+      "player button"
+    );
     if (this.props.currentUser.username === this.state.currentPlayer) {
       return <button onClick={this.handleClick}>PLAYER BUTTON</button>;
     } else {
-     return null;
+      return null;
+    }
+  };
+
+  currentQuestion = () => {
+    if (this.props.gameStarted === false) {
+      return "The host will start the game soon"
+    } else {
+     return this.state.currentQuestion
     }
   }
 
   render() {
-    console.log("props", this.props)
+    console.log("props", this.props);
     return (
       <div>
         this is a room
@@ -85,12 +119,10 @@ export class room extends React.Component {
           {this.hostButton()}
           {this.playerButton()}
           <br></br>
-          {this.state.currentQuestion}
+          {this.currentQuestion()}
           <br></br>
           The Current Player: {this.state.currentPlayer}
-
-          {/* <button onClick={this.handleClick}>BUTTON</button> */}
-{/* 
+          {/* 
           <Button className="btn btn-default">Primary</Button>
           <Button className="btn btn-default btn-lg"> lg</Button>
           <Button className="btn btn-warning">warning</Button> */}
@@ -101,7 +133,6 @@ export class room extends React.Component {
 }
 
 export default room;
-
 
 // handleClick = () => {
 //   console.log("clicked")
