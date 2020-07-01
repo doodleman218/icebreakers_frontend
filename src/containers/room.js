@@ -6,7 +6,7 @@ export class room extends React.Component {
   state = {
     currentQuestion: "???????????",
     currentPlayer: "",
-    allUsers: []
+    currentQuestion: ""
   };
 
   componentDidMount() {
@@ -18,9 +18,13 @@ export class room extends React.Component {
     if (this.props.gameStarted === false ){
       {this.props.startGame()}
     }
-    const currentPlayer = resp;
+    const currentPlayer = resp.currentPlayer;
     this.setState({
       currentPlayer: currentPlayer.username,
+    });
+    const currentQuestion = resp.currentQuestion;
+    this.setState({
+      currentQuestion: currentQuestion
     });
   };
 
@@ -36,6 +40,10 @@ export class room extends React.Component {
           room: this.props.match.params.id,
           currentPlayer: this.state.currentPlayer,
         },
+        question: {
+          room: this.props.match.params.id,
+          id: this.state.currentQuestion.id
+        }
       }),
     };
     fetch(`http://localhost:3000/users/select/foo`, reqObj);
@@ -98,7 +106,7 @@ export class room extends React.Component {
     if (this.props.gameStarted === false) {
       return "The host will start the game soon"
     } else {
-     return this.state.currentQuestion
+     return this.state.currentQuestion.content
     }
   }
 
