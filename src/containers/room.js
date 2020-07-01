@@ -1,31 +1,22 @@
 import React from "react";
 import { ActionCableConsumer } from "react-actioncable-provider";
-// import Cable from "../components/Cable";
 import Button from "react-bootstrap/Button";
 
 export class room extends React.Component {
   state = {
-    currentQuestion: [],
+    currentQuestion: "the game will start soon!",
     currentPlayer: "tim"
   };
 
   componentDidMount() {
-  console.log("mount",this.props.currentUser)
-    // fetch("http://localhost:3000/users")
-    // .then(resp => resp.json())
-    // .then(users => {
-    //   this.setState({
-    //     users: users
-    //   })
-    // })
+  console.log("mount",this.props.currentUser) 
   }
 
- 
-
   handleReceived = (resp) => {
+    console.log(resp)
     const currentPlayer = resp
     this.setState({
-      currentPlayer: currentPlayer
+      currentPlayer: currentPlayer.username
     })
   };
 
@@ -38,13 +29,31 @@ export class room extends React.Component {
       },
       body: JSON.stringify({ user: { room: this.props.match.params.id, currentPlayer: this.state.currentPlayer } }),
     };
-    fetch(`http://localhost:3000/users/select`, reqObj);
+    fetch(`http://localhost:3000/users/select/foo`, reqObj);
   };
+
+  handleStartClick = () => {
+    const reqObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user: { room: this.props.match.params.id, currentPlayer: this.state.currentPlayer } }),
+    };
+    fetch(`http://localhost:3000/users/start/foo`, reqObj);
+  }
+  
+  renderHostButtons = () => {
+    return <div>
+       <button onClick={this.handleClick}>HOST BUTTON</button>;
+       <button onClick={this.handleStartClick}>START GAME</button>;
+    </div>
+  }
 
   hostButton = () => {
     console.log(this.props.currentUser, this.props.hostID, "host button")
     if (this.props.currentUser.id === this.props.hostID) {
-      return <button onClick={this.handleClick}>HOST BUTTON</button>;
+      return this.renderHostButtons()
     } else {
      return null;
     }
@@ -52,7 +61,7 @@ export class room extends React.Component {
 
   playerButton = () => {
     console.log(this.props.currentUser, this.state.currentPlayer, "player button")
-    if (this.props.currentUser.username === this.state.currentPlayer.username) {
+    if (this.props.currentUser.username === this.state.currentPlayer) {
       return <button onClick={this.handleClick}>PLAYER BUTTON</button>;
     } else {
      return null;
@@ -75,6 +84,10 @@ export class room extends React.Component {
         >
           {this.hostButton()}
           {this.playerButton()}
+          <br></br>
+          {this.state.currentQuestion}
+          <br></br>
+          The Current Player: {this.state.currentPlayer}
 
           {/* <button onClick={this.handleClick}>BUTTON</button> */}
 {/* 
