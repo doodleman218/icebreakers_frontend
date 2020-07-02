@@ -10,7 +10,7 @@ export class room extends React.Component {
   };
 
   componentDidMount() {
-    console.log("mount", this.props.currentUser);
+    // console.log("mount", this.props.currentUser);
   }
 
   handleReceived = (resp) => {
@@ -26,10 +26,11 @@ export class room extends React.Component {
     this.setState({
       currentQuestion: currentQuestion
     });
+
   };
 
   handleClick = () => {
-    console.log("clicked");
+    // console.log("clicked");
     const reqObj = {
       method: "PATCH",
       headers: {
@@ -41,7 +42,6 @@ export class room extends React.Component {
           currentPlayer: this.state.currentPlayer,
         },
         question: {
-          room: this.props.match.params.id,
           id: this.state.currentQuestion.id
         }
       }),
@@ -90,11 +90,11 @@ export class room extends React.Component {
   };
 
   playerButton = () => {
-    console.log(
-      this.props.currentUser,
-      this.state.currentPlayer,
-      "player button"
-    );
+    // console.log(
+    //   this.props.currentUser,
+    //   this.state.currentPlayer,
+    //   "player button"
+    // );
     if (this.props.currentUser.username === this.state.currentPlayer) {
       return <button onClick={this.handleClick}>PLAYER BUTTON</button>;
     } else {
@@ -111,7 +111,7 @@ export class room extends React.Component {
   }
 
   render() {
-    console.log("props", this.props);
+    // console.log("props", this.props);
     return (
       <div>
         this is a room
