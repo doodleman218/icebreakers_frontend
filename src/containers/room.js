@@ -4,9 +4,9 @@ import Button from "react-bootstrap/Button";
 
 export class room extends React.Component {
   state = {
-    currentQuestion: "???????????",
     currentPlayer: "",
-    currentQuestion: ""
+    currentQuestion: "",
+    reshufflingUsers: false
   };
 
   componentDidMount() {
