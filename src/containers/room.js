@@ -1,12 +1,14 @@
 import React from "react";
 import { ActionCableConsumer } from "react-actioncable-provider";
 import Button from "react-bootstrap/Button";
+import AllUsers from "../components/allUsers"
 
 export class room extends React.Component {
   state = {
     currentPlayer: "",
     currentQuestion: "",
-    reshufflingUsers: false
+    reshufflingUsers: false,
+    allUsers: []
   };
 
   componentDidMount() {
@@ -14,23 +16,31 @@ export class room extends React.Component {
   }
 
   handleReceived = (resp) => {
-    console.log(resp);
+    // debugger
+    console.log("first", resp);
     if (this.props.gameStarted === false ){
       {this.props.startGame()}
     }
     const currentPlayer = resp.currentPlayer;
+    const currentQuestion = resp.currentQuestion;
+    const reshufflingUsers = resp.reshufflingUsers
+    
     this.setState({
       currentPlayer: currentPlayer.username,
+      currentQuestion: currentQuestion,
+      reshufflingUsers: reshufflingUsers
     });
-    const currentQuestion = resp.currentQuestion;
-    this.setState({
-      currentQuestion: currentQuestion
-    });
+  
+    // const user = resp.user.username
+    // this.setState({
+    //   allUsers: [...this.state.allUsers, user]
+    // })
 
   };
 
   handleClick = () => {
-    // console.log("clicked");
+    // console.log("handleClicked");
+    // debugger
     const reqObj = {
       method: "PATCH",
       headers: {
@@ -90,11 +100,7 @@ export class room extends React.Component {
   };
 
   playerButton = () => {
-    // console.log(
-    //   this.props.currentUser,
-    //   this.state.currentPlayer,
-    //   "player button"
-    // );
+    console.log("playerButton")
     if (this.props.currentUser.username === this.state.currentPlayer) {
       return <button onClick={this.handleClick}>PLAYER BUTTON</button>;
     } else {
@@ -112,6 +118,7 @@ export class room extends React.Component {
 
   render() {
     // console.log("props", this.props);
+    console.log(this.state.allUsers)
     return (
       <div>
         this is a room
@@ -130,11 +137,15 @@ export class room extends React.Component {
           {this.currentQuestion()}
           <br></br>
           The Current Player: {this.state.currentPlayer}
+          </ActionCableConsumer>
           {/* 
           <Button className="btn btn-default">Primary</Button>
           <Button className="btn btn-default btn-lg"> lg</Button>
           <Button className="btn btn-warning">warning</Button> */}
-        </ActionCableConsumer>
+        <ul>
+        
+        <AllUsers users={this.state.allUsers}></AllUsers>
+        </ul>
       </div>
     );
   }

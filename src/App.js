@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import { createBrowserHistory } from 'history'
 import Login from './containers/login'
 import Room from './containers/room'
 import CreateRoom from './containers/createRoom'
