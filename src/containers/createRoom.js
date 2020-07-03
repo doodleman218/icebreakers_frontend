@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Cable from '../components/Cable';
+// import Cable from '../components/Cable';
 
 export class createRoom extends Component {
   
@@ -21,14 +21,16 @@ export class createRoom extends Component {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(this.state)
+      body: JSON.stringify({room: this.state})
     }
     fetch("http://localhost:3000/rooms", reqObj)
     .then(resp => resp.json())
     .then(room => {
-      console.log(room)
+      // console.log("creat_room", room)
       localStorage.setItem("token", room.jwt)
-      this.props.history.push(`/room/${room.room.id}`)
+      this.props.updateUser(room.user)
+      this.props.setHost(room.room.host_id)
+      this.props.history.push(`/room/${room.room.id}`)   
     })
     this.setState({room_name: '', password: '', username: ''})
   }
