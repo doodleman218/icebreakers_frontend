@@ -34,12 +34,20 @@ class App extends React.Component {
   state = {
     currentUser: "",
     hostID: "",
+    roomName: "",
+    allUsers:[],
     gameStarted: false
   }
 
   updateUser = (user) => {
     this.setState({
       currentUser: user
+    })
+  }
+
+  roomName = (room) => {
+    this.setState({
+      roomName: room
     })
   }
 
@@ -62,17 +70,18 @@ class App extends React.Component {
   }
   
   render(){
-  return (
+  
+    return (
     <Router >
       <div className="App">
       <Route exact path="/" render={ (routeParams) => {
         return <Login updateUser={this.updateUser} updateHost={this.updateHost} {...routeParams} />
       }}/>
       <Route exact path="/room/:id" render={ (routeParams) => {
-        return <Room currentUser={this.state.currentUser} startGame={this.startGame} gameStarted={this.state.gameStarted} hostID={this.state.hostID} {...routeParams} />
+        return <Room currentUser={this.state.currentUser} startGame={this.startGame} gameStarted={this.state.gameStarted} hostID={this.state.hostID} roomName={this.state.roomName} {...routeParams} />
       }}/>
       <Route exact path="/create_room" render={ (routeParams) => {
-        return <CreateRoom updateUser={this.updateUser} setHost={this.setHost} {...routeParams} />
+        return <CreateRoom updateUser={this.updateUser} setHost={this.setHost} roomName={this.roomName} {...routeParams} />
       }}/>
       </div>
     </Router>

@@ -1,41 +1,46 @@
 import React from "react";
 import { ActionCableConsumer } from "@thrash-industries/react-actioncable-provider";
 import Button from "react-bootstrap/Button";
-import AllUsers from "../components/allUsers"
+import AllUsers from "../components/allUsers";
+import GameText from "../components/gameText";
 
 export class room extends React.Component {
   state = {
     currentPlayer: "",
     currentQuestion: "",
     reshufflingUsers: false,
-    allUsers: []
+    reshufflingQuestions: false,
+    allUsers: [],
   };
 
   componentDidMount() {
-    // console.log("mount", this.props.currentUser);
+    
   }
 
   handleReceived = (resp) => {
     // debugger
     console.log("first", resp);
-    if (this.props.gameStarted === false ){
-      {this.props.startGame()}
+    if (this.props.gameStarted === false) {
+      {
+        this.props.startGame();
+      }
     }
     const currentPlayer = resp.currentPlayer;
     const currentQuestion = resp.currentQuestion;
-    const reshufflingUsers = resp.reshufflingUsers
-    
+    const reshufflingUsers = resp.reshufflingUsers;
+    const reshufflingQuestions = resp.reshufflingQuestions;
+
     this.setState({
       currentPlayer: currentPlayer.username,
       currentQuestion: currentQuestion,
-      reshufflingUsers: reshufflingUsers
+      reshufflingUsers: reshufflingUsers,
+      reshufflingQuestions: reshufflingQuestions,
     });
-  
+
     // const user = resp.user.username
     // this.setState({
     //   allUsers: [...this.state.allUsers, user]
     // })
-
   };
 
   handleClick = () => {
@@ -52,8 +57,8 @@ export class room extends React.Component {
           currentPlayer: this.state.currentPlayer,
         },
         question: {
-          id: this.state.currentQuestion.id
-        }
+          id: this.state.currentQuestion.id,
+        },
       }),
     };
     fetch(`http://localhost:3000/users/select/foo`, reqObj);
@@ -67,7 +72,7 @@ export class room extends React.Component {
       },
       body: JSON.stringify({
         user: {
-          room: this.props.match.params.id
+          room: this.props.match.params.id,
         },
       }),
     };
@@ -100,7 +105,7 @@ export class room extends React.Component {
   };
 
   playerButton = () => {
-    console.log("playerButton")
+    console.log("playerButton");
     if (this.props.currentUser.username === this.state.currentPlayer) {
       return <button onClick={this.handleClick}>PLAYER BUTTON</button>;
     } else {
@@ -108,20 +113,32 @@ export class room extends React.Component {
     }
   };
 
-  currentQuestion = () => {
+  startText = () => {
     if (this.props.gameStarted === false) {
-      return "The host will start the game soon"
+      return <div>The host will start the game soon</div>;
     } else {
-     return this.state.currentQuestion.content
+      return (
+        <div>
+          <GameText
+            currentPlayer={this.state.currentPlayer}
+            currentQuestion={this.state.currentQuestion}
+            reshufflingUsers={this.state.reshufflingUsers}
+            reshufflingQuestions={this.state.reshufflingQuestions}
+          />
+        </div>
+      );
     }
-  }
+  };
 
   render() {
     // console.log("props", this.props);
-    console.log(this.state.allUsers)
+    console.log(this.props.gameStarted);
     return (
       <div>
-        this is a room
+        <div>
+        <a>Room: {this.props.roomName} </a>
+        <a>Player: {this.props.currentUser.username}</a>
+        </div><br></br>
         <button onClick={this.handleEndGame}>End Game</button>
         <button onClick={this.handleLogOut}>Log Out</button>
         <ActionCableConsumer
@@ -133,18 +150,17 @@ export class room extends React.Component {
         >
           {this.hostButton()}
           {this.playerButton()}
+          <br></br>    
+          {this.startText()}
           <br></br>
-          {this.currentQuestion()}
-          <br></br>
-          The Current Player: {this.state.currentPlayer}
-          </ActionCableConsumer>
-          {/* 
+          
+        </ActionCableConsumer>
+        {/* 
           <Button className="btn btn-default">Primary</Button>
           <Button className="btn btn-default btn-lg"> lg</Button>
           <Button className="btn btn-warning">warning</Button> */}
         <ul>
-        
-        <AllUsers users={this.state.allUsers}></AllUsers>
+          <AllUsers users={this.state.allUsers}></AllUsers>
         </ul>
       </div>
     );
@@ -165,9 +181,6 @@ export default room;
 //   fetch(`http://localhost:3000/users/test`, reqObj);
 // };
 
-// handleReceived = (resp) => {
-//   console.log(resp, "recieved");
-// };
 
 // {Resp = {type: 'player', player: {}} if (resp.type === 'player)
 
