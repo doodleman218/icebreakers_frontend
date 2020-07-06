@@ -19,7 +19,7 @@ export class room extends React.Component {
   }
 
   handleReceived = (resp) => {
-    // debugger
+
     console.log("first", resp);
     if (this.props.gameStarted === false) {
       {
@@ -48,7 +48,6 @@ export class room extends React.Component {
 
   handleClick = () => {
     // console.log("handleClicked");
-    // debugger
     const reqObj = {
       method: "PATCH",
       headers: {
@@ -99,7 +98,6 @@ export class room extends React.Component {
   };
 
   hostButton = () => {
-    // console.log(this.props.currentUser, this.props.hostID, "host button");
     if (this.props.currentUser.id === this.props.hostID) {
       return this.renderHostButtons();
     } else {
@@ -118,6 +116,25 @@ export class room extends React.Component {
     }
   };
 
+  resetUsersAndQuestionsShuffle = () => {
+    this.setState({
+      reshufflingUsers: false,
+      reshufflingQuestions: false
+    })
+  }
+  
+  resetUsersShuffle = () => {
+    this.setState({
+      reshufflingUsers: false
+    })
+  }
+
+  resetQuestionsShuffle = () => {
+    this.setState({
+      reshufflingQuestions: false
+    })
+  }
+
   startText = () => {
     if (this.props.gameStarted === false) {
       return <div>The host will start the game soon</div>;
@@ -129,6 +146,11 @@ export class room extends React.Component {
             currentQuestion={this.state.currentQuestion}
             reshufflingUsers={this.state.reshufflingUsers}
             reshufflingQuestions={this.state.reshufflingQuestions}
+            resetUsersShuffle={this.resetUsersShuffle}
+            resetQuestionsShuffle = {this.resetQuestionsShuffle}
+            resetUsersAndQuestionsShuffle = {this.resetUsersAndQuestionsShuffle} 
+            playerButton = {this.playerButton}
+            hostButton = {this.hostButton}
           />
         </div>
       );
@@ -159,7 +181,7 @@ export class room extends React.Component {
           {this.startText()}
           <br></br>
           {this.hostButton()}
-          {this.playerButton()}          
+          {/* {this.playerButton()}           */}
         </ActionCableConsumer>
         {/* 
           <Button className="btn btn-default">Primary</Button>
