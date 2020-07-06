@@ -3,6 +3,7 @@ import { ActionCableConsumer } from "@thrash-industries/react-actioncable-provid
 import Button from "react-bootstrap/Button";
 import AllUsers from "../components/allUsers";
 import GameText from "../components/gameText";
+import NavBar from '../components/navBar'
 
 export class room extends React.Component {
   state = {
@@ -10,7 +11,7 @@ export class room extends React.Component {
     currentQuestion: "",
     reshufflingUsers: false,
     reshufflingQuestions: false,
-    allUsers: [],
+    allUsers: []
   };
 
   componentDidMount() {
@@ -29,12 +30,14 @@ export class room extends React.Component {
     const currentQuestion = resp.currentQuestion;
     const reshufflingUsers = resp.reshufflingUsers;
     const reshufflingQuestions = resp.reshufflingQuestions;
+    const allUsers = resp.allUsers
 
     this.setState({
       currentPlayer: currentPlayer.username,
       currentQuestion: currentQuestion,
       reshufflingUsers: reshufflingUsers,
       reshufflingQuestions: reshufflingQuestions,
+      allUsers: allUsers
     });
 
     // const user = resp.user.username
@@ -106,10 +109,12 @@ export class room extends React.Component {
 
   playerButton = () => {
     console.log("playerButton");
-    if (this.props.currentUser.username === this.state.currentPlayer) {
-      return <button onClick={this.handleClick}>PLAYER BUTTON</button>;
-    } else {
+    if (this.props.currentUser.id === this.props.hostID ) {
       return null;
+    } else if (this.props.currentUser.username === this.state.currentPlayer) {
+      return <button onClick={this.handleClick}>PLAYER BUTTON</button>;
+    }  else {
+      return null
     }
   };
 
@@ -132,15 +137,16 @@ export class room extends React.Component {
 
   render() {
     // console.log("props", this.props);
-    console.log(this.props.gameStarted);
+    console.log("all users", this.state.allUsers)
+    // console.log(this.props.gameStarted);
     return (
       <div>
         <div>
-        <a>Room: {this.props.roomName} </a>
-        <a>Player: {this.props.currentUser.username}</a>
+        <NavBar room={this.props.roomName} currentUser={this.props.currentUser.id} host={this.props.hostID} player={this.props.currentUser.username}></NavBar>
+        
         </div><br></br>
-        <button onClick={this.handleEndGame}>End Game</button>
-        <button onClick={this.handleLogOut}>Log Out</button>
+        {/* <button onClick={this.handleEndGame}>End Game</button>
+        <button onClick={this.handleLogOut}>Log Out</button> */}
         <ActionCableConsumer
           channel={{
             channel: "UsersChannel",
@@ -148,12 +154,12 @@ export class room extends React.Component {
           }}
           onReceived={this.handleReceived}
         >
-          {this.hostButton()}
-          {this.playerButton()}
+          
           <br></br>    
           {this.startText()}
           <br></br>
-          
+          {this.hostButton()}
+          {this.playerButton()}          
         </ActionCableConsumer>
         {/* 
           <Button className="btn btn-default">Primary</Button>

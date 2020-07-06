@@ -1,14 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export class allUsers extends Component {
+  
+  renderAllUsers = () => {
+    return this.props.users.map((userObj) => {   
+      return <li key={userObj.id}>{userObj.username}</li>;
+    })
+  }
+  
   render() {
-    // console.log(this.props.users)
+    console.log("ALLUSERS", this.props.users);
     return (
       <div>
-       allusers {/* <li>{this.props.user.username}</li> */}
+        All Users: 
+        {this.renderAllUsers()}
       </div>
-    )
+    );
   }
 }
 
-export default allUsers
+export default allUsers;

@@ -1,42 +1,60 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export class gameText extends Component {
-  
-  userReshuffle = "reshuffling users"
-  // userReshuffle = () => {
-  //   {Reshuffling Users}
-  // }
-  
+  // userReshuffle = "reshuffling users"
+  userReshuffle = () => {
+    return "HELLO";
+  };
+
   gameText = () => {
-    let player = this.props.currentPlayer
-    let question = this.props.currentQuestion.content
-    
-    if (this.props.reshufflingQuestions && this.props.reshufflingUsers){
-      return <div><a>reshuffling users and questions</a> <a>{player}, {question}</a></div>
+    let player = this.props.currentPlayer;
+    let question = this.props.currentQuestion.content;
+
+    if (this.props.reshufflingQuestions && this.props.reshufflingUsers) {
+      return (
+        <div>
+          <h3>reshuffling users and questions</h3>{" "}
+          <h3 className="CurrentPlayer">{player}</h3>
+          <br></br>
+          <h3 className="CurrentQuestion">{question}</h3>
+        </div>
+      );
     } else if (this.props.reshufflingUsers === true) {
-        setTimeout(this.userReshuffle, 1000)
-        // return
-        // <a>{player}, {question}</a>
-        // return setTimeout(() => <a>reshuffling users</a>, 3000);
+      return setTimeout(() => {
+        this.userReshuffle();
+      }, 1000);
+
+      // this.userReshuffle()
+      // return
+      // <h2>{player}, {question}</h2>
+      // return setTimeout(() => <h3>reshuffling users</h3>, 3000);
       //         () => clearTimeout(setTimeout);
     } else if (this.props.reshufflingQuestions === true) {
-      return <div><a>reshuffling questions</a> <a>{player}, {question}</a></div>
+      return (
+        <div>
+          <h3>reshuffling questions</h3>
+          <h3 className="CurrentPlayer">{player}</h3>
+          <br></br>
+          <h3 className="CurrentQuestion">{question}</h3>
+        </div>
+      );
     } else {
-    return <a>{player}, {question}</a>
+      return (
+        <div>
+          <h3 className="CurrentPlayer">{player}</h3>
+          <br></br>
+          <h3 className="CurrentQuestion">{question}</h3>
+        </div>
+      );
     }
-  }
-  
+  };
+
   render() {
-    return (
-      <div>
-        {this.gameText()}
-      </div>
-    )
+    return <div>{this.gameText()}</div>;
   }
 }
 
-export default gameText
-
+export default gameText;
 
 // this.props.reshufflingUsers
 // this.props.reshufflingQuestions

@@ -2,24 +2,41 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {background-color: #4870A3;}
+* {color: rgb(140, 240, 195);}
+
+.NavBar {
+  background-color:#708FB7 ;
 }
 
+.NavBarTitle {
+color: red;
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.NavBarInfo {
+  color: red;
+  text-align: right;
+}
+
+.LogoutBtn{
+  background-color:#C7D3D4FF ;
+  color: black;
+}
+
+.home-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  text-align: center;
+  min-height: 95vh;
 }
 
-.App-link {
-  color: #61dafb;
-}
+
+/* ice flow = C7D3D4FF */
+/* #4870A3
+#708FB7
+#4870A3 
+#ADEFD1FF
+*/
 

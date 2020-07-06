@@ -5,6 +5,7 @@ import {
   Route
 } from 'react-router-dom';
 import Login from './containers/login'
+import Home from './containers/home'
 import Room from './containers/room'
 import CreateRoom from './containers/createRoom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -75,6 +76,9 @@ class App extends React.Component {
     <Router >
       <div className="App">
       <Route exact path="/" render={ (routeParams) => {
+        return <Home {...routeParams} />
+      }}/>
+      <Route exact path="/login" render={ (routeParams) => {
         return <Login updateUser={this.updateUser} updateHost={this.updateHost} {...routeParams} />
       }}/>
       <Route exact path="/room/:id" render={ (routeParams) => {
