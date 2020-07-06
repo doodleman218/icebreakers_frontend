@@ -81,25 +81,26 @@ export class room extends React.Component {
     fetch(`http://localhost:3000/users/start/foo`, reqObj);
   };
 
-  renderHostButtons = () => {
-    if (this.props.gameStarted === false) {
+  startButton = () => {
+    if (this.props.gameStarted === false && this.props.currentUser.id === this.props.hostID) {
       return (
         <div>
           <button onClick={this.handleStartClick}>START GAME</button>
         </div>
       );
-    } else {
-      return (
-        <div>
-          <button onClick={this.handleClick}>HOST BUTTON</button>
-        </div>
-      );
-    }
+     } 
+    // else {
+    //   return (
+    //     <div>
+    //       <button onClick={this.handleClick}>HOST BUTTON</button>
+    //     </div>
+    //   );
+    // }
   };
 
   hostButton = () => {
     if (this.props.currentUser.id === this.props.hostID) {
-      return this.renderHostButtons();
+      return <button onClick={this.handleClick}>HOST BUTTON</button>
     } else {
       return null;
     }
@@ -158,13 +159,11 @@ export class room extends React.Component {
   };
 
   render() {
-    // console.log("props", this.props);
     console.log("all users", this.state.allUsers)
-    // console.log(this.props.gameStarted);
     return (
       <div>
         <div>
-        <NavBar room={this.props.roomName} currentUser={this.props.currentUser.id} host={this.props.hostID} player={this.props.currentUser.username}></NavBar>
+        <NavBar room={this.props.roomName} logoutBtn={this.logoutBtn} endGameBtn={this.endGameBtn} currentUser={this.props.currentUser.id} host={this.props.hostID} player={this.props.currentUser.username}></NavBar>
         
         </div><br></br>
         {/* <button onClick={this.handleEndGame}>End Game</button>
@@ -180,7 +179,7 @@ export class room extends React.Component {
           <br></br>    
           {this.startText()}
           <br></br>
-          {this.hostButton()}
+          {this.startButton()}
           {/* {this.playerButton()}           */}
         </ActionCableConsumer>
         {/* 

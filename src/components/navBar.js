@@ -4,9 +4,9 @@ export class navBar extends Component {
   
   logOutBtn = () => {
     if (this.props.currentUser === this.props.host) {
-      return <button className="LogoutBtn">End Game</button>
+      return <button className="LogoutBtn" onClick={this.props.endGameBtn}>End Game</button>
     } else {
-      return <button className="LogoutBtn">Logout</button>
+      return <button className="LogoutBtn" onClick={this.props.logoutBtn}>Logout</button>
     }
   }
   
