@@ -3,7 +3,10 @@ import React, { Component } from "react";
 export class allUsers extends Component {
   
   renderAllUsers = () => {
-    return this.props.users.map((userObj) => {   
+
+    let allUsersArray = this.props.users.sort((a,b) => a.id - b.id )
+
+    return allUsersArray.map((userObj) => {   
       return <li key={userObj.id}>{userObj.username}</li>;
     })
   }
