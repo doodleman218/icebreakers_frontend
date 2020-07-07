@@ -139,7 +139,25 @@ export class room extends React.Component {
   }
 
   endGameBtn = () => {
-    let room = this.props.match.params.id
+    let id = this.props.match.params.id
+    const reqObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        room: {
+          id: id
+        },
+      }),
+    }
+    fetch(`http://localhost:3000/rooms/${id}`, reqObj)
+    .then(resp => resp.json())
+    .then(room => {
+      localStorage.removeItem("token");
+      this.props.history.push(`/`)
+    })
   }
 
   resetUsersAndQuestionsShuffle = () => {
@@ -162,8 +180,10 @@ export class room extends React.Component {
   }
 
   startText = () => {
-    if (this.props.gameStarted === false) {
-      return <div>The host will start the game soon</div>;
+    if (this.props.gameStarted === false && this.props.currentUser.id === this.props.hostID ) {
+      return <h2 className="welcomeTextHost">As the host, you can start the game when you are ready!</h2>;
+    } else if (this.props.gameStarted === false) {
+      return <h2 className="welcomeTextUser">The host, {this.props.hostName} will start the game soon!</h2>;
     } else {
       return (
         <div>
@@ -184,7 +204,7 @@ export class room extends React.Component {
   };
 
   render() {
-    console.log("all users", this.state.allUsers)
+    console.log("HERE", this.props.roomName)
     return (
       <div>
         <div>
@@ -192,7 +212,7 @@ export class room extends React.Component {
         
         </div><br></br>
         
-          <AllUsers users={this.state.allUsers}></AllUsers>
+          <AllUsers users={this.state.allUsers} gameStarted={this.props.gameStarted}></AllUsers>
         
         <ActionCableConsumer
           channel={{

@@ -50,7 +50,20 @@ left: calc(50% - 50px)
   align-items: center;
   text-align: center;
   min-height: 95vh;
-  background-color: red;
+}
+
+.welcomeTextHost {
+  position: absolute;
+  top: 40%;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.welcomeTextUser {
+  position: absolute;
+  margin-left: 8px;
+  margin-right: 8px;
+  top: 40%
 }
 
 .MainBtn {
@@ -80,6 +93,19 @@ left: calc(50% - 50px)
 
 .allusersTitle {
 
+}
+
+.createRoomForm {
+  /* display: inline-block;
+  vertical-align: middle; */
+  margin: auto;
+  
+}
+
+.createRoomDiv {
+  text-align: center;
+  display: flex;
+  /* vertical-align: middle; */
 }
 
 /* ice flow = C7D3D4FF */
