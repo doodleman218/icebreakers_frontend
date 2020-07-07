@@ -43,13 +43,23 @@ left: calc(50% - 50px)
   border-radius: 20px;
 }
 
-.home-buttons {
-  display: flex;
-  flex-direction: center;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 95vh;
+.homeCreateBtn {
+  position: absolute;
+  top: 45%;
+  width: 226px;
+  height: 60px;
+  left: calc(50% - 113px);
+  box-shadow: 5px 5px black;
+}
+
+
+.homeJoinBtn {
+  position: absolute;
+  top: 60%;
+  width: 226px;
+  height: 60px;
+  left: calc(50% - 113px);
+  box-shadow: 5px 5px black;
 }
 
 .welcomeTextHost {
@@ -128,4 +138,12 @@ left: calc(50% - 50px)
 #4870A3 
 #ADEFD1FF
 */
-
+/* 
+.homeJoinBtn {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+} */
