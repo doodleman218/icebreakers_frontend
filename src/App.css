@@ -1,26 +1,46 @@
 .App {
   text-align: center;
+  background-color: #4870A3;
 }
 
-* {background-color: #4870A3;}
+body {
+  background-color: #4870A3;
+}
+
+
 * {color: rgb(140, 240, 195);}
 
 .NavBar {
   background-color:#708FB7 ;
+  display: flex ;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
 }
 
 .NavBarTitle {
 color: red;
+position: absolute;
+width: 100px;
+left: calc(50% - 50px)
 }
 
 .NavBarInfo {
   color: red;
   text-align: right;
+  
+}
+
+.NavBarInfoParent {
+  max-width: 100px;
 }
 
 .LogoutBtn{
   background-color:#C7D3D4FF ;
   color: black;
+  height: 45px;
+  width: 100px;
+  border-radius: 20px;
 }
 
 .home-buttons {
@@ -30,8 +50,37 @@ color: red;
   align-items: center;
   text-align: center;
   min-height: 95vh;
+  background-color: red;
 }
 
+.MainBtn {
+  position: absolute;
+  top: 85%;
+  width: 200px;
+  height: 60px;
+  left: calc(50% - 100px);
+  box-shadow: 5px 5px black;
+}
+
+.eachUser {
+  min-width: 100px;
+}
+
+.allUsers {
+  margin: 10px;
+  border: 2px solid black;
+}
+
+.allUsersList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.allusersTitle {
+
+}
 
 /* ice flow = C7D3D4FF */
 /* #4870A3

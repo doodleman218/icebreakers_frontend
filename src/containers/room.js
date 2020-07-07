@@ -100,22 +100,47 @@ export class room extends React.Component {
 
   hostButton = () => {
     if (this.props.currentUser.id === this.props.hostID) {
-      return <button onClick={this.handleClick}>HOST BUTTON</button>
+      return <button className="MainBtn" onClick={this.handleClick}>HOST BUTTON</button>
     } else {
       return null;
     }
   };
 
   playerButton = () => {
-    console.log("playerButton");
     if (this.props.currentUser.id === this.props.hostID ) {
       return null;
     } else if (this.props.currentUser.username === this.state.currentPlayer) {
-      return <button onClick={this.handleClick}>PLAYER BUTTON</button>;
+      return <button className="MainBtn" onClick={this.handleClick}>PLAYER BUTTON</button>;
     }  else {
       return null
     }
   };
+
+  logoutBtn = () => {
+    let id = this.props.currentUser.id
+    const reqObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          id: id
+        },
+      }),
+    }
+    fetch(`http://localhost:3000/users/${id}`, reqObj)
+    .then(resp => resp.json())
+    .then(user => {
+      localStorage.removeItem("token");
+      this.props.history.push(`/`)
+    })
+  }
+
+  endGameBtn = () => {
+    let room = this.props.match.params.id
+  }
 
   resetUsersAndQuestionsShuffle = () => {
     this.setState({
@@ -166,8 +191,9 @@ export class room extends React.Component {
         <NavBar room={this.props.roomName} logoutBtn={this.logoutBtn} endGameBtn={this.endGameBtn} currentUser={this.props.currentUser.id} host={this.props.hostID} player={this.props.currentUser.username}></NavBar>
         
         </div><br></br>
-        {/* <button onClick={this.handleEndGame}>End Game</button>
-        <button onClick={this.handleLogOut}>Log Out</button> */}
+        
+          <AllUsers users={this.state.allUsers}></AllUsers>
+        
         <ActionCableConsumer
           channel={{
             channel: "UsersChannel",
@@ -186,9 +212,6 @@ export class room extends React.Component {
           <Button className="btn btn-default">Primary</Button>
           <Button className="btn btn-default btn-lg"> lg</Button>
           <Button className="btn btn-warning">warning</Button> */}
-        <ul>
-          <AllUsers users={this.state.allUsers}></AllUsers>
-        </ul>
       </div>
     );
   }

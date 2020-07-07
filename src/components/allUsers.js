@@ -7,16 +7,18 @@ export class allUsers extends Component {
     let allUsersArray = this.props.users.sort((a,b) => a.id - b.id )
 
     return allUsersArray.map((userObj) => {   
-      return <li key={userObj.id}>{userObj.username}</li>;
+      return <span className="eachUser" key={userObj.id}>{userObj.username}</span>;
     })
   }
   
   render() {
     console.log("ALLUSERS", this.props.users);
     return (
-      <div>
-        All Users: 
+      <div className="allUsers">
+        <h3 className="allUsersTitle">All Users:</h3>
+      <div className="allUsersList">
         {this.renderAllUsers()}
+      </div>
       </div>
     );
   }

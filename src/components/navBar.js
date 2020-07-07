@@ -15,8 +15,10 @@ export class navBar extends Component {
       <div className="NavBar">
         {this.logOutBtn()}
         <div className="NavBarTitle">ICEBREAKERS</div>
-        <div className="NavBarInfo">Room: {this.props.room} </div>
-        <div className="NavBarInfo">Player: {this.props.player}</div>
+        <div className="NavBarInfoParent">
+          <span className="NavBarInfo">Room: {this.props.room} </span>
+          <span className="NavBarInfo">Player: {this.props.player}</span>
+        </div>
       </div>
     )
   }
