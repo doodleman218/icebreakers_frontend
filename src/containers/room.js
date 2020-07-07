@@ -85,7 +85,7 @@ export class room extends React.Component {
     if (this.props.gameStarted === false && this.props.currentUser.id === this.props.hostID) {
       return (
         <div>
-          <button onClick={this.handleStartClick}>START GAME</button>
+          <button className="startBtn" onClick={this.handleStartClick}>START GAME</button>
         </div>
       );
      } 

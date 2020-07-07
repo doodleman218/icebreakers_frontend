@@ -24,9 +24,8 @@ export class gameText extends Component {
     } else {
       return (
         <div>
-          <h3 className="CurrentPlayer">{player}</h3>
-          <br></br>
-          <h3 className="CurrentQuestion">{question}</h3>
+          <h3 className="currentPlayer">{player}</h3>
+          <h3 className="currentQuestion">{question}</h3>
           <br></br>
           {this.props.playerButton()}
           {this.props.hostButton()}

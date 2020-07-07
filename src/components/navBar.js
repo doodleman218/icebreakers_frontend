@@ -17,7 +17,7 @@ export class navBar extends Component {
         <div className="NavBarTitle">ICEBREAKERS</div>
         <div className="NavBarInfoParent">
           <span className="NavBarInfo">Room: {this.props.room} </span>
-          <span className="NavBarInfo">Player: {this.props.player}</span>
+          {/* <span className="NavBarInfo">Player: {this.props.player}</span> */}
         </div>
       </div>
     )
