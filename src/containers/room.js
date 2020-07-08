@@ -92,7 +92,7 @@ export class room extends React.Component {
     if (this.props.currentUser.id === this.props.hostID ) {
       return null;
     } else if (this.props.currentUser.username === this.state.currentPlayer) {
-      return <button className="MainBtn" onClick={this.handleClick}>NEXT QUESTION</button>;
+      return <button className="MainBtn" onClick={this.handleClick}><h3 className="playerBtnText">NEXT QUESTION</h3></button>;
     }  else {
       return null
     }

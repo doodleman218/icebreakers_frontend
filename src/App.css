@@ -20,6 +20,15 @@ body {
   top: 13%
 }
 
+.formLogo {
+  width: 98%;
+  height: auto;
+  position: absolute;
+  left: 1%;
+  top: 13%
+}
+
+
 .NavBar {
   background-color:#0B9ED9  ;
   display: flex ;
@@ -57,7 +66,7 @@ left: calc(50% - 50px)
 }
 
 .LogoutBtn{
-  background-color:#C7D3D4FF ;
+  /* background-color:#C7D3D4FF ; */
   color: #0433BF;
   height: 45px;
   width: 100px;
@@ -76,7 +85,7 @@ left: calc(50% - 50px)
   box-shadow: 5px 5px #021859;
   border-radius: 10px;
   border:  5px solid #F25CA2;
-  background-color: #C7D3D4FF;
+  /* background-color: #C7D3D4FF; */
 }
 
 .homeCreateBtnText {
@@ -97,7 +106,7 @@ left: calc(50% - 50px)
   box-shadow: 5px 5px #021859;
   border-radius: 10px;
   border:  5px solid #F25CA2;
-  background-color: #C7D3D4FF;
+  /* background-color: #C7D3D4FF; */
 }
 
 .welcomeTextHost {
@@ -151,10 +160,16 @@ left: calc(50% - 50px)
   box-shadow: 5px 5px #021859;
   border-radius: 10px;
   border:  8px solid #F25CA2;
-  background-color: #C7D3D4FF;
+  /* background-color: #C7D3D4FF; */
 }
 
 .mainBtnText {
+  color: #0B9ED9;
+  font-style: oblique;
+  font-weight: 900;
+}
+
+.playerBtnText {
   color: #0B9ED9;
   font-style: oblique;
   font-weight: 900;
@@ -202,24 +217,41 @@ left: calc(50% - 50px)
   padding-bottom: 0px;
 }
 
-
-
 .createRoomForm {
   /* display: inline-block;
   vertical-align: middle; */
   display: flex;
   flex-direction: column;
-  border: 7px solid #F25CA2;
+  border: 7px solid #021859;
+  border-radius: 8px;
   position: absolute;
-  top: 30%;
+  top: 35%;
+  padding: 25px;
+  left: 10%;
   
 }
 
+.formInput{
+  width: 250px;
+}
+
+.formLabel {
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+
+.formBtn {
+  border-radius: 10px;
+  border:  5px solid #F25CA2;
+  box-shadow: 3px 3px #021859;
+  font-weight: 700
+}
+
 .createRoomDiv {
-  
   text-align: center;
   display: flex;
-  /* vertical-align: middle; */
+  margin: auto;
+  width: 50%; 
 }
 
 .userTrue {
