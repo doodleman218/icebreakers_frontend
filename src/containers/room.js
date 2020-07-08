@@ -14,10 +14,6 @@ export class room extends React.Component {
     allUsers: []
   };
 
-  componentDidMount() {
-    
-  }
-
   handleReceived = (resp) => {
 
     console.log("first", resp);
@@ -39,15 +35,9 @@ export class room extends React.Component {
       reshufflingQuestions: reshufflingQuestions,
       allUsers: allUsers
     });
-
-    // const user = resp.user.username
-    // this.setState({
-    //   allUsers: [...this.state.allUsers, user]
-    // })
   };
 
   handleClick = () => {
-    // console.log("handleClicked");
     const reqObj = {
       method: "PATCH",
       headers: {
@@ -82,6 +72,7 @@ export class room extends React.Component {
   };
 
   startButton = () => {
+    console.log("start btn", this.props.gameStarted, this.props.currentUser, this.props.hostID)
     if (this.props.gameStarted === false && this.props.currentUser.id === this.props.hostID) {
       return (
         <div>
@@ -89,13 +80,6 @@ export class room extends React.Component {
         </div>
       );
      } 
-    // else {
-    //   return (
-    //     <div>
-    //       <button onClick={this.handleClick}>HOST BUTTON</button>
-    //     </div>
-    //   );
-    // }
   };
 
   hostButton = () => {
@@ -204,7 +188,7 @@ export class room extends React.Component {
   };
 
   render() {
-    console.log("HERE", this.props.roomName)
+  
     return (
       <div>
         <div>

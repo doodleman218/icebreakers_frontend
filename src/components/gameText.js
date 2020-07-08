@@ -23,7 +23,7 @@ export class gameText extends Component {
         return <h3>Reshuffling Questions...</h3>
     } else {
       return (
-        <div>
+        <div className="gameText">
           <h3 className="currentPlayer">{player}</h3>
           <h3 className="currentQuestion">{question}</h3>
           <br></br>

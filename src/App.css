@@ -1,11 +1,12 @@
 .App {
   text-align: center;
-  background-color: #4870A3;
+  background-color: #0B9ED9;
 }
 
 body {
-  background-color: #4870A3;
+  background-color: #0B9ED9;
 }
+/* background-color: #4870A3; */
 
 
 * {color: rgb(140, 240, 195);}
@@ -17,6 +18,8 @@ body {
   padding: 10px;
   align-items: center;
 }
+
+/* #708FB7 ; */
 
 .NavBarTitle {
 color: red;
@@ -40,26 +43,27 @@ left: calc(50% - 50px)
   color: black;
   height: 45px;
   width: 100px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .homeCreateBtn {
   position: absolute;
-  top: 45%;
+  top: 40%;
   width: 226px;
   height: 60px;
   left: calc(50% - 113px);
-  box-shadow: 5px 5px black;
+  box-shadow: 3px 3px black;
+  border-radius: 10px;
 }
-
 
 .homeJoinBtn {
   position: absolute;
-  top: 60%;
+  top: 55%;
   width: 226px;
   height: 60px;
   left: calc(50% - 113px);
-  box-shadow: 5px 5px black;
+  box-shadow: 3px 3px black;
+  border-radius: 10px;
 }
 
 .welcomeTextHost {
@@ -76,18 +80,29 @@ left: calc(50% - 50px)
   top: 40%
 }
 
+.gameText {
+
+}
+
+.currentUser {
+  position: absolute;
+  top: 45%;
+}
 .currentQuestion {
+  position: absolute;
   margin-left: 5px;
   margin-right: 5px;
+  top: 42%;
 }
 
 .MainBtn {
   position: absolute;
   top: 80%;
-  width: 226px;
-  height: 60px;
-  left: calc(50% - 113px);
+  width: 250px;
+  height: 70px;
+  left: calc(50% - 125px);
   box-shadow: 5px 5px black;
+  border-radius: 10px;
 }
 
 .startBtn {
@@ -106,6 +121,7 @@ left: calc(50% - 50px)
 .allUsers {
   margin: 10px;
   border: 2px solid black;
+  border-radius: 5px;
 }
 
 .allUsersList {
@@ -113,10 +129,18 @@ left: calc(50% - 50px)
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
-.allusersTitle {
-
+.allUsersTitle {
+  border: 2px solid black;
+  /* border-top: 4px solid #4870A3; */
+  color: red;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .createRoomForm {
@@ -130,6 +154,14 @@ left: calc(50% - 50px)
   text-align: center;
   display: flex;
   /* vertical-align: middle; */
+}
+
+.userTrue {
+  color: black
+}
+
+.userFalse {
+  color: red
 }
 
 /* ice flow = C7D3D4FF */

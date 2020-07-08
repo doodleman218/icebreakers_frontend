@@ -9,12 +9,12 @@ export class home extends Component {
         <h1>WELCOME TO ICEBREAKERS</h1>
         <div className="homeBtnContainer" >
           <Link to="/create_room">
-            <button className="homeCreateBtn">Create a Room</button>
+            <button className="homeCreateBtn"><h3>Create a Room</h3></button>
           </Link>
           </div>
           <div>
           <Link to="/login">
-            <button className="homeJoinBtn">Join a Room</button>
+            <button className="homeJoinBtn"><h3>Join a Room</h3></button>
           </Link>
           {/* <a href="login/">Join a Game</a> */}
         </div>

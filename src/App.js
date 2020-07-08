@@ -78,7 +78,7 @@ class App extends React.Component {
   }
   
   render(){
-    console.log("2", this.state.hostName)
+
     return (
     <Router >
       <div className="App">
