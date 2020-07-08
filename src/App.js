@@ -71,6 +71,12 @@ class App extends React.Component {
     })
   }
 
+  endGame = () => {
+    this.setState({
+      gameStarted: false
+    })
+  }
+
   updateHost = (host) => {
     this.setState({
       hostID: host
@@ -89,7 +95,7 @@ class App extends React.Component {
         return <Login updateUser={this.updateUser} updateHost={this.updateHost} hostName={this.hostName} roomName={this.roomName} {...routeParams} />
       }}/>
       <Route exact path="/room/:id" render={ (routeParams) => {
-        return <Room currentUser={this.state.currentUser} startGame={this.startGame} gameStarted={this.state.gameStarted} hostID={this.state.hostID} roomName={this.state.roomName} hostName={this.state.hostName} {...routeParams} />
+        return <Room currentUser={this.state.currentUser} startGame={this.startGame} endGame={this.endGame} gameStarted={this.state.gameStarted} hostID={this.state.hostID} roomName={this.state.roomName} hostName={this.state.hostName} {...routeParams} />
       }}/>
       <Route exact path="/create_room" render={ (routeParams) => {
         return <CreateRoom updateUser={this.updateUser} setHost={this.setHost} roomName={this.roomName} hostName={this.hostName} {...routeParams} />

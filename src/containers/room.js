@@ -17,10 +17,8 @@ export class room extends React.Component {
   handleReceived = (resp) => {
 
     console.log("first", resp);
-    if (this.props.gameStarted === false) {
-      {
-        this.props.startGame();
-      }
+    if (this.props.gameStarted === false) { 
+        this.props.startGame();  
     }
     const currentPlayer = resp.currentPlayer;
     const currentQuestion = resp.currentQuestion;
@@ -84,7 +82,7 @@ export class room extends React.Component {
 
   hostButton = () => {
     if (this.props.currentUser.id === this.props.hostID) {
-      return <button className="MainBtn" onClick={this.handleClick}>HOST BUTTON</button>
+      return <button className="MainBtn" onClick={this.handleClick}><h3 className="mainBtnText">NEXT QUESTION</h3></button>
     } else {
       return null;
     }
@@ -94,7 +92,7 @@ export class room extends React.Component {
     if (this.props.currentUser.id === this.props.hostID ) {
       return null;
     } else if (this.props.currentUser.username === this.state.currentPlayer) {
-      return <button className="MainBtn" onClick={this.handleClick}>PLAYER BUTTON</button>;
+      return <button className="MainBtn" onClick={this.handleClick}>NEXT QUESTION</button>;
     }  else {
       return null
     }
@@ -139,6 +137,7 @@ export class room extends React.Component {
     fetch(`http://localhost:3000/rooms/${id}`, reqObj)
     .then(resp => resp.json())
     .then(room => {
+      this.props.endGame()
       localStorage.removeItem("token");
       this.props.history.push(`/`)
     })

@@ -9,29 +9,47 @@ body {
 /* background-color: #4870A3; */
 
 
-* {color: rgb(140, 240, 195);}
+* {color: #0433BF;}
+/* * {font-family: eurostile ;} */
+
+.homeLogo {
+  width: 98%;
+  height: auto;
+  position: absolute;
+  left: 1%;
+  top: 13%
+}
 
 .NavBar {
-  background-color:#708FB7 ;
+  background-color:#0B9ED9  ;
   display: flex ;
   justify-content: space-between;
   padding: 10px;
   align-items: center;
+  border-bottom: 7px solid #021859;
+  border-top: 7px solid #021859;
 }
 
 /* #708FB7 ; */
 
-.NavBarTitle {
+/* .NavBarTitle {
 color: red;
 position: absolute;
 width: 100px;
 left: calc(50% - 50px)
+} */
+
+.navLogo{
+  position: absolute;
+  height: auto;
+  width: 40%;
+  right: 29%;
+  top: 2%;
 }
 
 .NavBarInfo {
-  color: red;
+  color: #021859;
   text-align: right;
-  
 }
 
 .NavBarInfoParent {
@@ -40,10 +58,13 @@ left: calc(50% - 50px)
 
 .LogoutBtn{
   background-color:#C7D3D4FF ;
-  color: black;
+  color: #0433BF;
   height: 45px;
   width: 100px;
   border-radius: 10px;
+  border:  5px solid #F25CA2;
+  box-shadow: 3px 3px #021859;
+  font-weight: 700
 }
 
 .homeCreateBtn {
@@ -52,8 +73,19 @@ left: calc(50% - 50px)
   width: 226px;
   height: 60px;
   left: calc(50% - 113px);
-  box-shadow: 3px 3px black;
+  box-shadow: 5px 5px #021859;
   border-radius: 10px;
+  border:  5px solid #F25CA2;
+  background-color: #C7D3D4FF;
+}
+
+.homeCreateBtnText {
+  font-weight: 800;
+}
+
+
+.homeJoinBtnText{
+  font-weight: 800;
 }
 
 .homeJoinBtn {
@@ -62,8 +94,10 @@ left: calc(50% - 50px)
   width: 226px;
   height: 60px;
   left: calc(50% - 113px);
-  box-shadow: 3px 3px black;
+  box-shadow: 5px 5px #021859;
   border-radius: 10px;
+  border:  5px solid #F25CA2;
+  background-color: #C7D3D4FF;
 }
 
 .welcomeTextHost {
@@ -80,29 +114,50 @@ left: calc(50% - 50px)
   top: 40%
 }
 
-.gameText {
-
+.currentPlayer {
+ animation: createPlayer 2s;
+ font-weight: 700;
+ font-size: 300%;
+ font-style: oblique;
 }
 
-.currentUser {
-  position: absolute;
-  top: 45%;
-}
+
 .currentQuestion {
+  animation: createQuestion 2.5s;
   position: absolute;
   margin-left: 5px;
   margin-right: 5px;
   top: 42%;
 }
 
+@keyframes createQuestion {
+  0% {
+    transform: scale(0);
+    opacity: 0%;
+  }
+  100% {
+    transform: scale (1);
+    opacity: 100%;
+  } 
+}
+
 .MainBtn {
   position: absolute;
   top: 80%;
-  width: 250px;
+  width: 260px;
   height: 70px;
+  color: #0B9ED9;
   left: calc(50% - 125px);
-  box-shadow: 5px 5px black;
+  box-shadow: 5px 5px #021859;
   border-radius: 10px;
+  border:  8px solid #F25CA2;
+  background-color: #C7D3D4FF;
+}
+
+.mainBtnText {
+  color: #0B9ED9;
+  font-style: oblique;
+  font-weight: 900;
 }
 
 .startBtn {
@@ -118,10 +173,24 @@ left: calc(50% - 50px)
   min-width: 100px;
 }
 
+.allUsersTitle {
+  border: 7px solid #F25CA2;
+  /* border-top: 4px solid #4870A3; */
+  color: #0433BF;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 2px;
+  border-radius: 0px 0px 5px 5px;
+  font-style: oblique;
+  font-weight: 900;
+
+}
+
 .allUsers {
   margin: 10px;
-  border: 2px solid black;
+  border: 7px solid #F25CA2;
   border-radius: 5px;
+  box-shadow: 3px 3px #021859;
 }
 
 .allUsersList {
@@ -133,35 +202,33 @@ left: calc(50% - 50px)
   padding-bottom: 0px;
 }
 
-.allUsersTitle {
-  border: 2px solid black;
-  /* border-top: 4px solid #4870A3; */
-  color: red;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 2px;
-  border-radius: 0px 0px 5px 5px;
-}
+
 
 .createRoomForm {
   /* display: inline-block;
   vertical-align: middle; */
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border: 7px solid #F25CA2;
+  position: absolute;
+  top: 30%;
   
 }
 
 .createRoomDiv {
+  
   text-align: center;
   display: flex;
   /* vertical-align: middle; */
 }
 
 .userTrue {
-  color: black
+  color: #0433BF
 }
 
 .userFalse {
-  color: red
+  color: #0433BF;
+  opacity: 35%;
 }
 
 /* ice flow = C7D3D4FF */
