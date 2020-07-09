@@ -253,4 +253,4 @@ export default room;
 //   localStorage.removeItem("token");
 
 //   // history.push('/create_room')
-// };
+// };;
