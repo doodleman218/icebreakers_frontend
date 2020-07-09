@@ -164,9 +164,9 @@ export class room extends React.Component {
 
   startText = () => {
     if (this.props.gameStarted === false && this.props.currentUser.id === this.props.hostID ) {
-      return <h2 className="welcomeTextHost">As the host, you can start the game when you are ready!</h2>;
+      return  <h2 className="welcomeTextHost">As the <span className="welcomeTextHostSpan">host</span>, you can start the game whenever your party is ready!</h2>;
     } else if (this.props.gameStarted === false) {
-      return <h2 className="welcomeTextUser">The host, {this.props.hostName} will start the game soon!</h2>;
+      return <h2 className="welcomeTextUser">The host, <span className="welcomeTextUserSpan">{this.props.hostName}</span>, will start the game soon!</h2>;
     } else {
       return (
         <div>

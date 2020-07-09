@@ -16,11 +16,14 @@ export class navBar extends Component {
       <div className="NavBar">
         {this.logOutBtn()}
         <div className="NavBarTitle"><img className="navLogo"src={icebreakersv8} alt="icebreakers logo"/></div>
-        <div className="NavBarInfoParent">
-          <span className="NavBarInfo">Room: {this.props.room} </span>
-          {/* <span className="NavBarInfo">Player: {this.props.player}</span> */}
+        {/* <div className="NavBarInfoParent"> */}
+          <span className="NavBarInfo"> 
+            <div className="navBarInfoRoom">Room</div>
+            <div className="navBarInfoName">{this.props.room}  </div>
+          </span>
+          
         </div>
-      </div>
+      // </div>
     )
   }
 }

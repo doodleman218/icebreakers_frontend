@@ -43,7 +43,7 @@ export class createRoom extends Component {
       <div className="createRoomDiv">
         <img className="formLogo" src={icebreakersv8} alt="icebreakers logo" />
         <form className="createRoomForm" onSubmit={this.handleSubmit}>
-          <label className="formLabel">Roomname</label>
+          <label className="formLabel">Create Room Name</label>
           <input
             className="formInput"
             id="rname"
@@ -51,7 +51,7 @@ export class createRoom extends Component {
             value={this.state.room_name}
             onChange={this.handleChange}
           />
-          <label className="formLabel">Password</label>
+          <label className="formLabel">Create Password</label>
           <input
             className="formInput"
             id="pword"
@@ -60,7 +60,7 @@ export class createRoom extends Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
-          <label className="formLabel">Host Name</label>
+          <label className="formLabel">Create Player Name</label>
           <input
             className="formInput"
             id="uname"

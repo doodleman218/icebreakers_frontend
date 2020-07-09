@@ -42,7 +42,7 @@ export class login extends Component {
       <div className="createRoomDiv">
         <img className="formLogo" src={icebreakersv8} alt="icebreakers logo" />
         <form className="createRoomForm" onSubmit={this.handleSubmit}>
-          <label className="formLabel">Enter Roomname</label>
+          <label className="formLabel">Enter Room Name</label>
           <input
             className="formInput"
             name="room_name"

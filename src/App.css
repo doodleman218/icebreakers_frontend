@@ -58,11 +58,29 @@ left: calc(50% - 50px)
 
 .NavBarInfo {
   color: #021859;
-  text-align: right;
+  /* text-align: right; */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 33px;
+  top: 20px;
+  max-width: 80px;
 }
 
-.NavBarInfoParent {
-  max-width: 100px;
+
+/* .NavBarInfoParent {
+  max-width: 80px;
+  position: absolute;
+  right: 33px;
+  top: 20px
+} */
+
+.navBarInfoRoom{
+  /* text-decoration: underline; */
+  color: #021859;
+  font-weight: 700;
+  border-bottom:  2px solid #021859;
+  line-height: 0.90;
 }
 
 .LogoutBtn{
@@ -116,6 +134,16 @@ left: calc(50% - 50px)
   margin-right: 8px;
 }
 
+.welcomeTextHostSpan {
+  text-shadow: 1px 1px #F25CA2;
+  font-weight: 800
+}
+
+.welcomeTextUserSpan {
+  text-shadow: 1px 1px #F25CA2;
+  font-weight: 800
+}
+
 .welcomeTextUser {
   position: absolute;
   margin-left: 8px;
@@ -129,6 +157,8 @@ left: calc(50% - 50px)
  font-size: 300%;
  font-style: oblique;
  /* border: 5px solid #021859; */
+ /* color:#F25CA2; */
+ text-shadow: 1px 1px #F25CA2;
 
 }
 
