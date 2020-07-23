@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Cable from '../components/Cable';
 import icebreakersv8 from "../logo/icebreakersv8.png";
 
 export class login extends Component {

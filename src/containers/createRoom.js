@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Cable from '../components/Cable';
 import icebreakersv8 from "../logo/icebreakersv8.png";
 
 export class createRoom extends Component {
@@ -28,7 +27,6 @@ export class createRoom extends Component {
       .then((room) => {
         console.log("ROOOOOM", room);
         localStorage.setItem("token", room.jwt);
-        //set hostID, roomID
         this.props.updateUser(room.user);
         this.props.setHost(room.room.host_id);
         this.props.hostName(room.room.host_name);

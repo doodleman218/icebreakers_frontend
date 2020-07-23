@@ -18,7 +18,6 @@ export class allUsers extends Component {
       return (
         <span className="eachUser" key={userObj.id}>
           {this.userColor(userObj)}
-          {/* {userObj.username} */}
         </span>
       );
     });

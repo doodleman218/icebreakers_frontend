@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import login from "./login";
 import icebreakersv8 from "../logo/icebreakersv8.png"
 
 export class home extends Component {
@@ -19,7 +18,6 @@ export class home extends Component {
           <Link to="/login">
             <button className="homeJoinBtn"><h3 className="homeJoinBtnText">Join a Room</h3></button>
           </Link>
-          {/* <a href="login/">Join a Game</a> */}
         </div>
       </div>
     );
@@ -28,6 +26,3 @@ export class home extends Component {
 
 export default home;
 
-{
-  /* <a type="button" className="btn btn-info" href="create_room/" role="button">Create a Game</a> */
-}
