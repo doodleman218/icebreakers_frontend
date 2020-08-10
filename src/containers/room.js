@@ -1,9 +1,8 @@
 import React from "react";
 import { ActionCableConsumer } from "@thrash-industries/react-actioncable-provider";
-import Button from "react-bootstrap/Button";
 import AllUsers from "../components/allUsers";
 import GameText from "../components/gameText";
-import NavBar from '../components/navBar'
+import NavBar from "../components/navBar";
 
 export class room extends React.Component {
   state = {
@@ -11,27 +10,26 @@ export class room extends React.Component {
     currentQuestion: "",
     reshufflingUsers: false,
     reshufflingQuestions: false,
-    allUsers: []
+    allUsers: [],
   };
 
   handleReceived = (resp) => {
-
     console.log("first", resp);
-    if (this.props.gameStarted === false) { 
-        this.props.startGame();  
+    if (this.props.gameStarted === false) {
+      this.props.startGame();
     }
     const currentPlayer = resp.currentPlayer;
     const currentQuestion = resp.currentQuestion;
     const reshufflingUsers = resp.reshufflingUsers;
     const reshufflingQuestions = resp.reshufflingQuestions;
-    const allUsers = resp.allUsers
+    const allUsers = resp.allUsers;
 
     this.setState({
       currentPlayer: currentPlayer.username,
       currentQuestion: currentQuestion,
       reshufflingUsers: reshufflingUsers,
       reshufflingQuestions: reshufflingQuestions,
-      allUsers: allUsers
+      allUsers: allUsers,
     });
   };
 
@@ -70,36 +68,54 @@ export class room extends React.Component {
   };
 
   startButton = () => {
-    console.log("start btn", this.props.gameStarted, this.props.currentUser, this.props.hostID)
-    if (this.props.gameStarted === false && this.props.currentUser.id === this.props.hostID) {
+    console.log(
+      "start btn",
+      this.props.gameStarted,
+      this.props.currentUser,
+      this.props.hostID
+    );
+    if (
+      this.props.gameStarted === false &&
+      this.props.currentUser.id === this.props.hostID
+    ) {
       return (
         <div>
-          <button className="startBtn" onClick={this.handleStartClick}><h3 className="mainBtnText">START GAME</h3></button>
+          <button className="startBtn" onClick={this.handleStartClick}>
+            <h3 className="mainBtnText">START GAME</h3>
+          </button>
         </div>
       );
-     } 
+    }
   };
 
   hostButton = () => {
     if (this.props.currentUser.id === this.props.hostID) {
-      return <button className="MainBtn" onClick={this.handleClick}><h3 className="mainBtnText">NEXT QUESTION</h3></button>
+      return (
+        <button className="MainBtn" onClick={this.handleClick}>
+          <h3 className="mainBtnText">NEXT QUESTION</h3>
+        </button>
+      );
     } else {
       return null;
     }
   };
 
   playerButton = () => {
-    if (this.props.currentUser.id === this.props.hostID ) {
+    if (this.props.currentUser.id === this.props.hostID) {
       return null;
     } else if (this.props.currentUser.username === this.state.currentPlayer) {
-      return <button className="MainBtn" onClick={this.handleClick}><h3 className="playerBtnText">NEXT QUESTION</h3></button>;
-    }  else {
-      return null
+      return (
+        <button className="MainBtn" onClick={this.handleClick}>
+          <h3 className="playerBtnText">NEXT QUESTION</h3>
+        </button>
+      );
+    } else {
+      return null;
     }
   };
 
   logoutBtn = () => {
-    let id = this.props.currentUser.id
+    let id = this.props.currentUser.id;
     const reqObj = {
       method: "DELETE",
       headers: {
@@ -108,20 +124,20 @@ export class room extends React.Component {
       },
       body: JSON.stringify({
         user: {
-          id: id
+          id: id,
         },
       }),
-    }
+    };
     fetch(`http://localhost:3000/users/${id}`, reqObj)
-    .then(resp => resp.json())
-    .then(user => {
-      localStorage.removeItem("token");
-      this.props.history.push(`/`)
-    })
-  }
+      .then((resp) => resp.json())
+      .then((user) => {
+        localStorage.removeItem("token");
+        this.props.history.push(`/`);
+      });
+  };
 
   endGameBtn = () => {
-    let id = this.props.match.params.id
+    let id = this.props.match.params.id;
     const reqObj = {
       method: "DELETE",
       headers: {
@@ -130,43 +146,57 @@ export class room extends React.Component {
       },
       body: JSON.stringify({
         room: {
-          id: id
+          id: id,
         },
       }),
-    }
+    };
     fetch(`http://localhost:3000/rooms/${id}`, reqObj)
-    .then(resp => resp.json())
-    .then(room => {
-      this.props.endGame()
-      localStorage.removeItem("token");
-      this.props.history.push(`/`)
-    })
-  }
+      .then((resp) => resp.json())
+      .then((room) => {
+        this.props.endGame();
+        localStorage.removeItem("token");
+        this.props.history.push(`/`);
+      });
+  };
 
   resetUsersAndQuestionsShuffle = () => {
     this.setState({
       reshufflingUsers: false,
-      reshufflingQuestions: false
-    })
-  }
-  
+      reshufflingQuestions: false,
+    });
+  };
+
   resetUsersShuffle = () => {
     this.setState({
-      reshufflingUsers: false
-    })
-  }
+      reshufflingUsers: false,
+    });
+  };
 
   resetQuestionsShuffle = () => {
     this.setState({
-      reshufflingQuestions: false
-    })
-  }
+      reshufflingQuestions: false,
+    });
+  };
 
   startText = () => {
-    if (this.props.gameStarted === false && this.props.currentUser.id === this.props.hostID ) {
-      return  <h2 className="welcomeTextHost">As the <span className="welcomeTextHostSpan">host</span>, you can start the game whenever your party is ready!</h2>;
+    if (
+      this.props.gameStarted === false &&
+      this.props.currentUser.id === this.props.hostID
+    ) {
+      return (
+        <h2 className="welcomeTextHost">
+          As the <span className="welcomeTextHostSpan">host</span>, you can
+          start the game whenever your party is ready!
+        </h2>
+      );
     } else if (this.props.gameStarted === false) {
-      return <h2 className="welcomeTextUser">The host, <span className="welcomeTextUserSpan">{this.props.hostName}</span>, will start the game soon!</h2>;
+      return (
+        <h2 className="welcomeTextUser">
+          The host,{" "}
+          <span className="welcomeTextUserSpan">{this.props.hostName}</span>,
+          will start the game soon!
+        </h2>
+      );
     } else {
       return (
         <div>
@@ -176,10 +206,10 @@ export class room extends React.Component {
             reshufflingUsers={this.state.reshufflingUsers}
             reshufflingQuestions={this.state.reshufflingQuestions}
             resetUsersShuffle={this.resetUsersShuffle}
-            resetQuestionsShuffle = {this.resetQuestionsShuffle}
-            resetUsersAndQuestionsShuffle = {this.resetUsersAndQuestionsShuffle} 
-            playerButton = {this.playerButton}
-            hostButton = {this.hostButton}
+            resetQuestionsShuffle={this.resetQuestionsShuffle}
+            resetUsersAndQuestionsShuffle={this.resetUsersAndQuestionsShuffle}
+            playerButton={this.playerButton}
+            hostButton={this.hostButton}
           />
         </div>
       );
@@ -187,16 +217,25 @@ export class room extends React.Component {
   };
 
   render() {
-  
     return (
       <div>
         <div>
-        <NavBar room={this.props.roomName} logoutBtn={this.logoutBtn} endGameBtn={this.endGameBtn} currentUser={this.props.currentUser.id} host={this.props.hostID} player={this.props.currentUser.username}></NavBar>
-        
-        </div><br></br>
-        
-          <AllUsers users={this.state.allUsers} gameStarted={this.props.gameStarted}></AllUsers>
-        
+          <NavBar
+            room={this.props.roomName}
+            logoutBtn={this.logoutBtn}
+            endGameBtn={this.endGameBtn}
+            currentUser={this.props.currentUser.id}
+            host={this.props.hostID}
+            player={this.props.currentUser.username}
+          ></NavBar>
+        </div>
+        <br></br>
+
+        <AllUsers
+          users={this.state.allUsers}
+          gameStarted={this.props.gameStarted}
+        ></AllUsers>
+
         <ActionCableConsumer
           channel={{
             channel: "UsersChannel",
@@ -204,36 +243,17 @@ export class room extends React.Component {
           }}
           onReceived={this.handleReceived}
         >
-          
-          <br></br>    
+          <br></br>
           {this.startText()}
           <br></br>
           {this.startButton()}
-          {/* {this.playerButton()}           */}
         </ActionCableConsumer>
-        {/* 
-          <Button className="btn btn-default">Primary</Button>
-          <Button className="btn btn-default btn-lg"> lg</Button>
-          <Button className="btn btn-warning">warning</Button> */}
       </div>
     );
   }
 }
 
 export default room;
-
-// handleClick = () => {
-//   console.log("clvicked")
-//   const reqObj = {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({ user: { room: this.props.match.params.id } }),
-//   };
-//   fetch(`http://localhost:3000/users/test`, reqObj);
-// };
-
 
 // {Resp = {type: 'player', player: {}} if (resp.type === 'player)
 
