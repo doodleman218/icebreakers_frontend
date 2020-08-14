@@ -25,16 +25,18 @@ export class login extends Component {
     fetch("http://localhost:3000/", reqObj)
       .then((resp) => resp.json())
       .then((resp) => {
-       if (resp.user) { localStorage.setItem("token", resp.jwt);
-        this.props.setLogin(resp.user, resp.room.room_name, resp.room.host_id, resp.room.host_name)
-        // this.props.updateUser(room.user);
-        // this.props.updateHost(room.room.host_id);
-        // this.props.hostName(room.room.host_name);
-        // this.props.roomName(room.room.room_name);
-        this.props.history.push(`/room/${resp.room.id}`);
-      } else {
-        alert(resp.error)
-      }
+        if (resp.user) {
+          localStorage.setItem("token", resp.jwt);
+          this.props.setLogin(
+            resp.user,
+            resp.room.room_name,
+            resp.room.host_id,
+            resp.room.host_name
+          );
+          this.props.history.push(`/room/${resp.room.id}`);
+        } else {
+          alert(resp.error);
+        }
       });
     this.setState({ room_name: "", password: "", username: "" });
   };
@@ -51,7 +53,7 @@ export class login extends Component {
             value={this.state.room_name}
             onChange={this.handleChange}
           />
-         <label className="formLabel">Enter Password</label>
+          <label className="formLabel">Enter Password</label>
           <input
             className="formInput"
             name="password"
@@ -77,7 +79,6 @@ export class login extends Component {
 }
 
 export default login;
-
 
 // fetch("http://localhost:3000/", reqObj)
 // .then((resp) => resp.json())

@@ -64,7 +64,7 @@ class App extends React.Component {
       currentUser: currentUser,
       roomName: roomName,
       hostID: hostID,
-      hostName: hostName
+      hostName: hostName,
     });
   };
 
@@ -73,7 +73,7 @@ class App extends React.Component {
       currentUser: currentUser,
       roomName: roomName,
       hostID: hostID,
-      hostName: hostName
+      hostName: hostName,
     });
   };
 
@@ -92,16 +92,7 @@ class App extends React.Component {
             exact
             path="/login"
             render={(routeParams) => {
-              return (
-                <Login
-                setLogin={this.setLogin} 
-                // updateUser={this.updateUser}
-                  // updateHost={this.updateHost}
-                  // hostName={this.hostName}
-                  // roomName={this.roomName}
-                  {...routeParams}
-                />
-              );
+              return <Login setLogin={this.setLogin} {...routeParams} />;
             }}
           />
           <Route
