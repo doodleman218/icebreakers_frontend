@@ -17,30 +17,6 @@ class App extends React.Component {
     hostName: "",
   };
 
-  updateUser = (user) => {
-    this.setState({
-      currentUser: user,
-    });
-  };
-
-  roomName = (room) => {
-    this.setState({
-      roomName: room,
-    });
-  };
-
-  setHost = (host) => {
-    this.setState({
-      hostID: host,
-    });
-  };
-
-  hostName = (username) => {
-    this.setState({
-      hostName: username,
-    });
-  };
-
   startGame = () => {
     this.setState({
       gameStarted: true,
@@ -50,12 +26,6 @@ class App extends React.Component {
   endGame = () => {
     this.setState({
       gameStarted: false,
-    });
-  };
-
-  updateHost = (host) => {
-    this.setState({
-      hostID: host,
     });
   };
 
