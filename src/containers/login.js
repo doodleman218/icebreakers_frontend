@@ -26,7 +26,7 @@ export class login extends Component {
       .then((resp) => resp.json())
       .then((resp) => {
        if (resp.user) { localStorage.setItem("token", resp.jwt);
-        
+        this.props.setLogin(resp.user, resp.room.room_name, resp.room.host_id, resp.room.host_name)
         // this.props.updateUser(room.user);
         // this.props.updateHost(room.room.host_id);
         // this.props.hostName(room.room.host_name);
