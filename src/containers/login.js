@@ -24,16 +24,16 @@ export class login extends Component {
     };
     fetch("http://localhost:3000/", reqObj)
       .then((resp) => resp.json())
-      .then((room) => {
-        console.log("1", room);
-       if (room.user) { localStorage.setItem("token", room.jwt);
-        this.props.updateUser(room.user);
-        this.props.updateHost(room.room.host_id);
-        this.props.hostName(room.room.host_name);
-        this.props.roomName(room.room.room_name);
-        this.props.history.push(`/room/${room.room.id}`);
+      .then((resp) => {
+       if (resp.user) { localStorage.setItem("token", resp.jwt);
+        
+        // this.props.updateUser(room.user);
+        // this.props.updateHost(room.room.host_id);
+        // this.props.hostName(room.room.host_name);
+        // this.props.roomName(room.room.room_name);
+        this.props.history.push(`/room/${resp.room.id}`);
       } else {
-        alert(room.error)
+        alert(resp.error)
       }
       });
     this.setState({ room_name: "", password: "", username: "" });
