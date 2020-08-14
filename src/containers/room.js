@@ -72,6 +72,7 @@ export class room extends React.Component {
       "start btn",
       this.props.gameStarted,
       this.props.currentUser,
+      "hostId",
       this.props.hostID
     );
     if (

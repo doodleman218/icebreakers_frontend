@@ -11,25 +11,6 @@ import CreateRoom from './containers/createRoom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
-// componentDidMount(){
-  // const token = localStorage.getItem('token')
-  // if (token){
-    // reqObj = {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Authorization: 'Bearer ${token}',
-    //   },
-    // }
-    // fetch("http://localhost:3000/users", reqObj)
-    // .then((resp) => resp.json())
-    // .then((data) => {
-
-    // })
-  // }
-// }
-
 class App extends React.Component {
   
   state = {
@@ -82,6 +63,15 @@ class App extends React.Component {
       hostID: host
     })
   }
+
+  setCreateRoom = (currentUser, roomName, hostID, hostName) => {
+    this.setState({
+      currentUser: currentUser,
+      roomName: roomName,
+      hostID: hostID,
+      hostName: hostName
+    })
+  }
   
   render(){
 
@@ -98,7 +88,10 @@ class App extends React.Component {
         return <Room currentUser={this.state.currentUser} startGame={this.startGame} endGame={this.endGame} gameStarted={this.state.gameStarted} hostID={this.state.hostID} roomName={this.state.roomName} hostName={this.state.hostName} {...routeParams} />
       }}/>
       <Route exact path="/create_room" render={ (routeParams) => {
-        return <CreateRoom updateUser={this.updateUser} setHost={this.setHost} roomName={this.roomName} hostName={this.hostName} {...routeParams} />
+        return <CreateRoom 
+        setCreateRoom={this.setCreateRoom}
+        // updateUser={this.updateUser} setHost={this.setHost} roomName={this.roomName} hostName={this.hostName} 
+        {...routeParams} />
       }}/>
       </div>
     </Router>

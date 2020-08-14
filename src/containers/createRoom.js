@@ -24,14 +24,14 @@ export class createRoom extends Component {
     };
     fetch("http://localhost:3000/rooms", reqObj)
       .then((resp) => resp.json())
-      .then((room) => {
-        console.log("ROOOOOM", room);
-        localStorage.setItem("token", room.jwt);
-        this.props.updateUser(room.user);
-        this.props.setHost(room.room.host_id);
-        this.props.hostName(room.room.host_name);
-        this.props.roomName(room.room.room_name);
-        this.props.history.push(`/room/${room.room.id}`);
+      .then((resp) => {
+        localStorage.setItem("token", resp.jwt);
+        this.props.setCreateRoom(resp.user, resp.room.room_name, resp.room.host_id, resp.room.host_name)
+        // this.props.updateUser(room.user);
+        // this.props.setHost(room.room.host_id);
+        // this.props.hostName(room.room.host_name);
+        // this.props.roomName(room.room.room_name);
+        this.props.history.push(`/room/${resp.room.id}`);
       });
     this.setState({ room_name: "", password: "", username: "" });
   };
