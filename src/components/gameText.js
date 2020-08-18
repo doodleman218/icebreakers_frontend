@@ -2,6 +2,14 @@ import React, { Component } from "react";
 
 export class gameText extends Component {
 
+questionText = () => {
+
+}
+
+shuffleText = () => {
+
+}
+
   gameText = () => {
     let player = this.props.currentPlayer;
     let question = this.props.currentQuestion.content;
