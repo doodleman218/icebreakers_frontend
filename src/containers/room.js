@@ -180,6 +180,23 @@ export class room extends React.Component {
   };
 
   screenText = () => {
+    if (this.props.gameStarted === true) {
+      return (
+        <div>
+          <GameText
+            currentPlayer={this.state.currentPlayer}
+            currentQuestion={this.state.currentQuestion}
+            reshufflingUsers={this.state.reshufflingUsers}
+            reshufflingQuestions={this.state.reshufflingQuestions}
+            resetUsersShuffle={this.resetUsersShuffle}
+            resetQuestionsShuffle={this.resetQuestionsShuffle}
+            resetUsersAndQuestionsShuffle={this.resetUsersAndQuestionsShuffle}
+            playerButton={this.playerButton}
+            hostButton={this.hostButton}
+          />
+        </div>
+      );
+    }
     if (
       this.props.gameStarted === false &&
       this.props.currentUser.id === this.props.hostID
@@ -198,22 +215,6 @@ export class room extends React.Component {
           will start the game soon!
         </h2>
       );
-    } else {
-      return (
-        <div>
-          <GameText
-            currentPlayer={this.state.currentPlayer}
-            currentQuestion={this.state.currentQuestion}
-            reshufflingUsers={this.state.reshufflingUsers}
-            reshufflingQuestions={this.state.reshufflingQuestions}
-            resetUsersShuffle={this.resetUsersShuffle}
-            resetQuestionsShuffle={this.resetQuestionsShuffle}
-            resetUsersAndQuestionsShuffle={this.resetUsersAndQuestionsShuffle}
-            playerButton={this.playerButton}
-            hostButton={this.hostButton}
-          />
-        </div>
-      );
     }
   };
 
@@ -231,12 +232,10 @@ export class room extends React.Component {
           ></NavBar>
         </div>
         <br></br>
-
         <AllUsers
           users={this.state.allUsers}
           gameStarted={this.props.gameStarted}
         ></AllUsers>
-
         <ActionCableConsumer
           channel={{
             channel: "UsersChannel",
@@ -255,4 +254,3 @@ export class room extends React.Component {
 }
 
 export default room;
-
