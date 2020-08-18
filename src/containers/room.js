@@ -14,7 +14,6 @@ export class room extends React.Component {
   };
 
   handleReceived = (resp) => {
-    console.log("first", resp);
     if (this.props.gameStarted === false) {
       this.props.startGame();
     }
@@ -68,13 +67,6 @@ export class room extends React.Component {
   };
 
   startButton = () => {
-    console.log(
-      "start btn",
-      this.props.gameStarted,
-      this.props.currentUser,
-      "hostId",
-      this.props.hostID
-    );
     if (
       this.props.gameStarted === false &&
       this.props.currentUser.id === this.props.hostID
