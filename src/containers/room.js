@@ -179,7 +179,7 @@ export class room extends React.Component {
     });
   };
 
-  startText = () => {
+  screenText = () => {
     if (
       this.props.gameStarted === false &&
       this.props.currentUser.id === this.props.hostID
@@ -245,7 +245,7 @@ export class room extends React.Component {
           onReceived={this.handleReceived}
         >
           <br></br>
-          {this.startText()}
+          {this.screenText()}
           <br></br>
           {this.startButton()}
         </ActionCableConsumer>
@@ -256,22 +256,3 @@ export class room extends React.Component {
 
 export default room;
 
-// {Resp = {type: 'player', player: {}} if (resp.type === 'player)
-
-// handleEndGame = () => {
-//   localStorage.removeItem("token");
-//   const reqObj = {
-//     method: "DELETE",
-//   };
-//   fetch(
-//     `http://localhost:3000/room/${this.props.match.params.id}`,
-//     reqObj
-//   ).then((resp) => resp.json());
-//   this.props.history.push("/create_room");
-// };
-
-// handleLogOut = () => {
-//   localStorage.removeItem("token");
-
-//   // history.push('/create_room')
-// };;
