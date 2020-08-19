@@ -6,11 +6,8 @@
 body {
   background-color: #0B9ED9;
 }
-/* background-color: #4870A3; */
-
 
 * {color: #0433BF;}
-/* * {font-family: eurostile ;} */
 
 .homeLogo {
   width: 98%;
@@ -39,15 +36,6 @@ body {
   border-top: 7px solid #021859;
 }
 
-/* #708FB7 ; */
-
-/* .NavBarTitle {
-color: red;
-position: absolute;
-width: 100px;
-left: calc(50% - 50px)
-} */
-
 .navLogo{
   position: absolute;
   height: auto;
@@ -58,7 +46,6 @@ left: calc(50% - 50px)
 
 .NavBarInfo {
   color: #021859;
-  /* text-align: right; */
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -68,15 +55,7 @@ left: calc(50% - 50px)
 }
 
 
-/* .NavBarInfoParent {
-  max-width: 80px;
-  position: absolute;
-  right: 33px;
-  top: 20px
-} */
-
 .navBarInfoRoom{
-  /* text-decoration: underline; */
   color: #021859;
   font-weight: 700;
   border-bottom:  2px solid #021859;
@@ -84,7 +63,6 @@ left: calc(50% - 50px)
 }
 
 .LogoutBtn{
-  /* background-color:#C7D3D4FF ; */
   color: #0433BF;
   height: 45px;
   width: 100px;
@@ -103,7 +81,6 @@ left: calc(50% - 50px)
   box-shadow: 5px 5px #021859;
   border-radius: 10px;
   border:  5px solid #F25CA2;
-  /* background-color: #C7D3D4FF; */
 }
 
 .homeCreateBtnText {
@@ -124,7 +101,6 @@ left: calc(50% - 50px)
   box-shadow: 5px 5px #021859;
   border-radius: 10px;
   border:  5px solid #F25CA2;
-  /* background-color: #C7D3D4FF; */
 }
 
 .welcomeTextHost {
@@ -156,8 +132,6 @@ left: calc(50% - 50px)
  font-weight: 700;
  font-size: 300%;
  font-style: oblique;
- /* border: 5px solid #021859; */
- /* color:#F25CA2; */
  text-shadow: 1px 1px #F25CA2;
 
 }
@@ -193,7 +167,6 @@ left: calc(50% - 50px)
   box-shadow: 5px 5px #021859;
   border-radius: 10px;
   border:  8px solid #F25CA2;
-  /* background-color: #C7D3D4FF; */
 }
 
 .mainBtnText {
@@ -223,7 +196,6 @@ left: calc(50% - 50px)
 
 .allUsersTitle {
   border: 7px solid #F25CA2;
-  /* border-top: 4px solid #4870A3; */
   color: #0433BF;
   padding-left: 20px;
   padding-right: 20px;
@@ -251,8 +223,6 @@ left: calc(50% - 50px)
 }
 
 .createRoomForm {
-  /* display: inline-block;
-  vertical-align: middle; */
   display: flex;
   flex-direction: column;
   border: 7px solid #021859;
@@ -303,18 +273,3 @@ left: calc(50% - 50px)
   opacity: 35%;
 }
 
-/* ice flow = C7D3D4FF */
-/* #4870A3
-#708FB7
-#4870A3 
-#ADEFD1FF
-*/
-/* 
-.homeJoinBtn {
-  display: flex;
-  flex-direction: center;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 40px;
-} */
