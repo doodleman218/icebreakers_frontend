@@ -39,6 +39,20 @@ body {
 }
 
 
+@media only screen and (min-width: 768px){
+  .formLogo {
+    width: 70%;
+  /* height: auto; */
+    position: absolute;
+    left: 15%;
+    top: 3%
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto; */
+  }
+}
+
+
 .NavBar {
   background-color:#0B9ED9  ;
   display: flex ;
@@ -253,9 +267,9 @@ body {
     border: 7px solid #021859;
     border-radius: 8px;
     position: absolute;
-    top: 35%;
+    top: 40%;
     padding: 25px;
-    left: 10%;
+    left: 38%;
   }
 }
 
