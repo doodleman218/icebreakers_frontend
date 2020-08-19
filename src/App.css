@@ -71,6 +71,17 @@ body {
   top: 2%;
 }
 
+
+@media only screen and (min-width: 768px){
+  .navLogo{
+    position: absolute;
+    height: auto;
+    width: 15%;
+    right: 29%;
+    top: 2%;
+  }
+}
+
 .NavBarInfo {
   color: #021859;
   display: flex;
