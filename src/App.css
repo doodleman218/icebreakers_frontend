@@ -17,18 +17,20 @@ body {
   top: 13%
 }
 
-@media only screen and (min-width: 768px){
+/* @media only screen and (min-width: 768px){
   .homeLogo {
     width: 70%;
-  /* height: auto; */
+  
     position: absolute;
     left: 15%;
     top: 3%
-  /* display: block;
+ 
+  }
+} */
+ /* display: block;
   margin-left: auto;
   margin-right: auto; */
-  }
-}
+  /* height: auto; */
 
 .formLogo {
   width: 98%;
@@ -39,18 +41,20 @@ body {
 }
 
 
-@media only screen and (min-width: 768px){
+/* @media only screen and (min-width: 768px){
   .formLogo {
     width: 70%;
-  /* height: auto; */
+
     position: absolute;
     left: 15%;
     top: 3%
+
+  }
+} */
   /* display: block;
   margin-left: auto;
   margin-right: auto; */
-  }
-}
+    /* height: auto; */
 
 
 .NavBar {
@@ -71,7 +75,7 @@ body {
   top: 2%;
 }
 
-
+/* 
 @media only screen and (min-width: 768px){
   .navLogo{
     position: absolute;
@@ -80,7 +84,7 @@ body {
     right: 29%;
     top: 2%;
   }
-}
+} */
 
 .NavBarInfo {
   color: #021859;
@@ -270,7 +274,7 @@ body {
   padding: 25px;
   left: 10%;
 }
-
+/* 
 @media only screen and (min-width: 768px){
   .createRoomForm {
     display: flex;
@@ -282,7 +286,7 @@ body {
     padding: 25px;
     left: 38%;
   }
-}
+} */
 
 .formInput{
   width: 250px;

@@ -6,6 +6,7 @@ import Home from "./containers/home";
 import Room from "./containers/room";
 import CreateRoom from "./containers/createRoom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from 'react-bootstrap'
 
 class App extends React.Component {
   state = {
