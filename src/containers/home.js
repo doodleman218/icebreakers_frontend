@@ -11,23 +11,24 @@ export class home extends Component {
         <img className="img-fluid" src={icebreakersv8} alt="icebreakers logo"/>
         </Row>
         <Row >
-        <Col></Col>
-        <Col>
+        <Col className="col-2"></Col>
+        <Col className="col align-self-center">
           <Link to="/create_room">
-            <button ><h3>Create a Room</h3></button>
+            <button className="homeCreateBtn" ><h3 className="homeCreateBtnText">Create a Room</h3></button>
           </Link>
         </Col>
-        <Col></Col>
+        <Col className="col-2"></Col>
         </Row>
         <Row>
-        <Col></Col>
-        <Col>
+        <Col className="col-2"></Col>
+        <Col className="col align-self-center">
           <Link to="/login">
-            <button ><h3 >Join a Room</h3></button>
+            <button className="homeJoinBtn"><h3 className="homeJoinBtnText">Join a Room</h3></button>
           </Link>
           </Col>
-        <Col></Col>
+        <Col className="col-2"></Col>
         </Row>
+        <Row ></Row>
       </Container>
     );
   }

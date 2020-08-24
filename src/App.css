@@ -9,34 +9,19 @@ body {
 
 * {color: #0433BF;}
 
-.homeLogo {
+/* .homeLogo {
   width: 98%;
   height: auto;
   position: absolute;
   left: 1%;
   top: 13%
-}
+} */
 
 .boot-home-logo {
-  padding-top: 50px;
+  padding-top: 70px;
   padding-left: 10px;
   padding-right: 10px;
 }
-
-/* @media only screen and (min-width: 768px){
-  .homeLogo {
-    width: 70%;
-  
-    position: absolute;
-    left: 15%;
-    top: 3%
- 
-  }
-} */
- /* display: block;
-  margin-left: auto;
-  margin-right: auto; */
-  /* height: auto; */
 
 .formLogo {
   width: 98%;
@@ -44,6 +29,12 @@ body {
   position: absolute;
   left: 1%;
   top: 13%
+}
+
+.boot-form-logo {
+  padding-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 
@@ -121,14 +112,12 @@ body {
 }
 
 .homeCreateBtn {
-  position: absolute;
-  top: 40%;
   width: 226px;
   height: 60px;
-  left: calc(50% - 113px);
   box-shadow: 5px 5px #021859;
   border-radius: 10px;
   border:  5px solid #F25CA2;
+  margin-top: 15%;
 }
 
 .homeCreateBtnText {
@@ -140,15 +129,14 @@ body {
   font-weight: 800;
 }
 
-.homeJoinBtn {
-  position: absolute;
-  top: 55%;
+.homeJoinBtn { 
   width: 226px;
   height: 60px;
-  left: calc(50% - 113px);
   box-shadow: 5px 5px #021859;
   border-radius: 10px;
   border:  5px solid #F25CA2;
+  margin-top: 10%;
+  
 }
 
 .welcomeTextHost {

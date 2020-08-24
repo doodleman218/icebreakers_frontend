@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import icebreakersv8 from "../logo/icebreakersv8.png";
+import { Container, Row, Col } from 'react-bootstrap'
+
 
 export class createRoom extends Component {
   state = {
@@ -34,7 +36,7 @@ export class createRoom extends Component {
 
   render() {
     return (
-      <div className="createRoomDiv">
+      <Container className="createRoomDiv">
         <img className="formLogo" src={icebreakersv8} alt="icebreakers logo" />
         <form className="createRoomForm" onSubmit={this.handleSubmit}>
           <label className="formLabel">Create Room Name</label>
@@ -68,7 +70,7 @@ export class createRoom extends Component {
             Create your Room
           </button>
         </form>
-      </div>
+      </Container>
     );
   }
 }
