@@ -305,12 +305,12 @@ body {
   font-weight: 700
 }
 
-.createRoomDiv {
+/* .createRoomDiv {
   text-align: center;
   display: flex;
   margin: auto;
   width: 50%; 
-}
+} */
 
 .userTrue {
   color: #0433BF

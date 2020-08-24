@@ -36,8 +36,10 @@ export class createRoom extends Component {
 
   render() {
     return (
-      <Container className="createRoomDiv">
-        <img className="formLogo" src={icebreakersv8} alt="icebreakers logo" />
+      <Container>
+        <Row className="boot-home-logo">
+        <img className="img-fluid" src={icebreakersv8} alt="icebreakers logo" />
+        </Row>
         <form className="createRoomForm" onSubmit={this.handleSubmit}>
           <label className="formLabel">Create Room Name</label>
           <input
@@ -76,3 +78,45 @@ export class createRoom extends Component {
 }
 
 export default createRoom;
+
+
+
+{/* <Container className="createRoomDiv">
+        <Row className="boot-home-logo">
+        <img className="img-fluid" src={icebreakersv8} alt="icebreakers logo" />
+        </Row>
+        <form className="createRoomForm" onSubmit={this.handleSubmit}>
+          <label className="formLabel">Create Room Name</label>
+          <input
+            className="formInput"
+            id="rname"
+            name="room_name"
+            value={this.state.room_name}
+            onChange={this.handleChange}
+          />
+          <label className="formLabel">Create Password</label>
+          <input
+            className="formInput"
+            id="pword"
+            name="password"
+            type="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+          <label className="formLabel">Create Player Name</label>
+          <input
+            className="formInput"
+            id="uname"
+            name="username"
+            type="text"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+          <br></br>
+          <button className="formBtn" type="submit">
+            Create your Room
+          </button>
+        </form>
+      </Container>
+    );
+  } */}

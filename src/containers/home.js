@@ -28,7 +28,7 @@ export class home extends Component {
           </Col>
         <Col className="col-2"></Col>
         </Row>
-        <Row ></Row>
+        <Row className="boot-home-row"></Row>
       </Container>
     );
   }
