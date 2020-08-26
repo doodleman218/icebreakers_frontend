@@ -49,54 +49,49 @@ export class createRoom extends Component {
           />
         </Row>
         <Row>
-          <Col className="col align-self-center">
-            {/* <div class="d-flex flex-column-reverse bd-highlight"> */}
-              <form className="createRoomForm" onSubmit={this.handleSubmit}>
-                {/* <div class="p-2 bd-highlight"> */}
-                  <label className="formLabel">Create Room Name</label><br></br>
-                {/* </div> */}
-                {/* <div class="p-2 bd-highlight"> */}
-                  <input
-                    className="formInput"
-                    id="rname"
-                    name="room_name"
-                    value={this.state.room_name}
-                    onChange={this.handleChange}
-                  /> <br></br>
-                {/* </div> */} 
-                {/* <div class="p-2 bd-highlight"> */}
-                  <label className="formLabel">Create Password</label><br></br>
-                {/* </div> */}
-                {/* <div class="p-2 bd-highlight"> */}
-                  <input
-                    className="formInput"
-                    id="pword"
-                    name="password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                  /><br></br>
-                {/* </div> */}
-                {/* <div class="p-2 bd-highlight"> */}
-                  <label className="formLabel">Create Player Name</label><br></br>
-                {/* </div> */}
-                {/* <div class="p-2 bd-highlight"> */}
-                  <input
-                    className="formInput"
-                    id="uname"
-                    name="username"
-                    type="text"
-                    value={this.state.username}
-                    onChange={this.handleChange}
-                  /><br></br>
-                {/* </div> */}
-                
-                <button className="formBtn" type="submit">
-                  Create your Room
-                </button><br></br>
-              </form>
-            {/* </div> */}
+          <Col className="col"></Col>
+          <Col className="col-10 align-self-center">
+            <form className="createRoomForm" onSubmit={this.handleSubmit}>
+            
+              <label className="formLabel">Create Room Name</label>
+              <br></br>
+              <input
+                className="formInput"
+                id="rname"
+                name="room_name"
+                value={this.state.room_name}
+                onChange={this.handleChange}
+              />{" "}
+              <br></br>
+              <label className="formLabel">Create Password</label>
+              <br></br>
+              <input
+                className="formInput"
+                id="pword"
+                name="password"
+                type="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+              <br></br>
+              <label className="formLabel">Create Player Name</label>
+              <br></br>
+              <input
+                className="formInput"
+                id="uname"
+                name="username"
+                type="text"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
+              <br></br>
+              <button className="formBtn" type="submit">
+                Create your Room
+              </button>
+              <br></br>
+            </form>
           </Col>
+          <Col className="col"></Col>
         </Row>
       </Container>
     );
