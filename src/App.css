@@ -9,28 +9,19 @@ body {
 
 * {color: #0433BF;}
 
-.homeLogo {
+/* .homeLogo {
   width: 98%;
   height: auto;
   position: absolute;
   left: 1%;
   top: 13%
-}
-
-/* @media only screen and (min-width: 768px){
-  .homeLogo {
-    width: 70%;
-  
-    position: absolute;
-    left: 15%;
-    top: 3%
- 
-  }
 } */
- /* display: block;
-  margin-left: auto;
-  margin-right: auto; */
-  /* height: auto; */
+
+.boot-home-logo {
+  padding-top: 70px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 .formLogo {
   width: 98%;
@@ -38,6 +29,12 @@ body {
   position: absolute;
   left: 1%;
   top: 13%
+}
+
+.boot-form-logo {
+  padding-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 
@@ -115,14 +112,12 @@ body {
 }
 
 .homeCreateBtn {
-  position: absolute;
-  top: 40%;
   width: 226px;
   height: 60px;
-  left: calc(50% - 113px);
   box-shadow: 5px 5px #021859;
   border-radius: 10px;
   border:  5px solid #F25CA2;
+  margin-top: 15%;
 }
 
 .homeCreateBtnText {
@@ -134,15 +129,14 @@ body {
   font-weight: 800;
 }
 
-.homeJoinBtn {
-  position: absolute;
-  top: 55%;
+.homeJoinBtn { 
   width: 226px;
   height: 60px;
-  left: calc(50% - 113px);
   box-shadow: 5px 5px #021859;
   border-radius: 10px;
   border:  5px solid #F25CA2;
+  margin-top: 10%;
+  
 }
 
 .welcomeTextHost {
@@ -265,14 +259,19 @@ body {
 }
 
 .createRoomForm {
-  display: flex;
-  flex-direction: column;
+
   border: 7px solid #021859;
   border-radius: 8px;
-  position: absolute;
-  top: 35%;
-  padding: 25px;
-  left: 10%;
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
+  /* position: absolute;
+  top: 35%; */
+  /* padding: 25px;
+  height: 275px;
+  width: 300px; */
+  /* left: 10%; */
+  margin-top: 5%;
 }
 /* 
 @media only screen and (min-width: 768px){
@@ -301,7 +300,9 @@ body {
   border-radius: 10px;
   border:  5px solid #F25CA2;
   box-shadow: 3px 3px #021859;
-  font-weight: 700
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .startBtn {
@@ -311,12 +312,12 @@ body {
   font-weight: 700
 }
 
-.createRoomDiv {
+/* .createRoomDiv {
   text-align: center;
   display: flex;
   margin: auto;
   width: 50%; 
-}
+} */
 
 .userTrue {
   color: #0433BF
@@ -326,4 +327,5 @@ body {
   color: #0433BF;
   opacity: 35%;
 }
+
 
