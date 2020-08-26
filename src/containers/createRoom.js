@@ -50,7 +50,7 @@ export class createRoom extends Component {
         </Row>
         <Row>
           <Col className="col"></Col>
-          <Col className="col-10 align-self-center">
+          <Col className="max-width-400 col-10 align-self-center">
             <form className="createRoomForm" onSubmit={this.handleSubmit}>
             
               <label className="formLabel">Create Room Name</label>
