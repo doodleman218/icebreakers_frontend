@@ -7,6 +7,9 @@ Icebreakers is a social party game web app. It's quick and easy for anybody to p
 [Rails API github](https://github.com/DavidWolff218/icebreakers_backend)
 
 
+### Screenshots
+Homepage and Login
+
 ### Contact
 
 You can reach me on [LinkedIn](https://www.linkedin.com/in/davidwolff218/) or by email, dcwolff218@gmail.com
