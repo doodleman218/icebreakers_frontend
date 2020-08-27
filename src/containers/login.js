@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import icebreakersv8 from "../logo/icebreakersv8.png";
+import { Container, Row, Col } from "react-bootstrap";
 
 export class login extends Component {
   state = {
@@ -44,7 +45,13 @@ export class login extends Component {
   render() {
     return (
       <div className="createRoomDiv">
-        <img className="formLogo" src={icebreakersv8} alt="icebreakers logo" />
+        <Row className="boot-home-logo">
+          <img
+            className="formLogo"
+            src={icebreakersv8}
+            alt="icebreakers logo"
+          />
+        </Row>
         <form className="createRoomForm" onSubmit={this.handleSubmit}>
           <label className="formLabel">Enter Room Name</label>
           <input
@@ -79,4 +86,3 @@ export class login extends Component {
 }
 
 export default login;
-
