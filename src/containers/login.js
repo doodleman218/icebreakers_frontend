@@ -44,7 +44,8 @@ export class login extends Component {
 
   render() {
     return (
-      <div className="createRoomDiv">
+      <Container>
+      {/* <div className="createRoomDiv"> */}
         <Row className="boot-home-logo">
           <img
             className="formLogo"
@@ -52,15 +53,21 @@ export class login extends Component {
             alt="icebreakers logo"
           />
         </Row>
+        <Row>
+          <Col className="col"></Col>
+          <Col className="max-width-400 col-10 align-self-center">
         <form className="createRoomForm" onSubmit={this.handleSubmit}>
           <label className="formLabel">Enter Room Name</label>
+          <br></br>
           <input
             className="formInput"
             name="room_name"
             value={this.state.room_name}
             onChange={this.handleChange}
           />
+          <br></br>
           <label className="formLabel">Enter Password</label>
+          <br></br>
           <input
             className="formInput"
             name="password"
@@ -68,7 +75,9 @@ export class login extends Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
+          <br></br>
           <label className="formLabel">Create Player Name</label>
+          <br></br>
           <input
             className="formInput"
             name="username"
@@ -80,7 +89,10 @@ export class login extends Component {
             Join a Room
           </button>
         </form>
-      </div>
+        </Col>
+        </Row>
+      {/* </div> */}
+      </Container>
     );
   }
 }
