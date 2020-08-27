@@ -48,7 +48,7 @@ export class login extends Component {
       {/* <div className="createRoomDiv"> */}
         <Row className="boot-home-logo">
           <img
-            className="formLogo"
+            className="img-fluid"
             src={icebreakersv8}
             alt="icebreakers logo"
           />
@@ -90,6 +90,7 @@ export class login extends Component {
           </button>
         </form>
         </Col>
+        <Col className="col"></Col>
         </Row>
       {/* </div> */}
       </Container>

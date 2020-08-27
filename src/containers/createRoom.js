@@ -52,7 +52,6 @@ export class createRoom extends Component {
           <Col className="col"></Col>
           <Col className="max-width-400 col-10 align-self-center">
             <form className="createRoomForm" onSubmit={this.handleSubmit}>
-            
               <label className="formLabel">Create Room Name</label>
               <br></br>
               <input
