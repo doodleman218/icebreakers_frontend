@@ -1,4 +1,4 @@
-##ICEBREAKERS
+## ICEBREAKERS
 
 Icebreakers is a social party game web app. It's quick and easy for anybody to play with a group from their own phone, and a fun way to get to know the people at your next party even better.
 
