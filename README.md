@@ -8,9 +8,9 @@ Icebreakers is a social party game web app. It's quick and easy for anybody to p
 
 [Rails API github](https://github.com/DavidWolff218/icebreakers_backend)
 
-
 ### Future Updates
 - Implementing more validation checks for room and user names
+- Releasing Icebreakers
 - Creating a voting feature where users are presented with two options and can vote on the next question
 - Allowing the host to remove questions from the game
 
@@ -27,6 +27,26 @@ Lobby and Gameroom
 
 <img width="462" alt="Screen Shot 2020-08-27 at 11 33 16 AM" src="https://user-images.githubusercontent.com/60520496/91499831-d03b5600-e887-11ea-858e-077d466be0de.png">
 
+### Installation and Usage
+
+- Clone the [backend](https://github.com/DavidWolff218/icebreakers_backend)
+- Install gems
+```
+cd icebreakers_backend
+bundle install
+```
+- Clone this repo
+- Install dependencies
+```
+cd icebreakers_frontend
+npm install
+```
+- From the backend directory, start the  server. Make sure the API server is running on localhost:3000.
+```rails s```
+This should run on localhost:3000, so make sure nothing else is using that port.
+- From the frontend directory, start the server.
+```npm start```
+The front end server will pick the next avaiable port, most likely localhost:3001, and you will be prompted to approve the port. You can also open a new browser window in incognito/private mode, go to localhost:3001, and you will be able to join the room as another player.
 
 ### Contact
 
