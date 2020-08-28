@@ -42,10 +42,14 @@ cd icebreakers_frontend
 npm install
 ```
 - From the backend directory, start the  server. Make sure the API server is running on localhost:3000.
-```rails s```
+```
+rails s
+```
 This should run on localhost:3000, so make sure nothing else is using that port.
 - From the frontend directory, start the server.
-```npm start```
+```
+npm start
+```
 The front end server will pick the next avaiable port, most likely localhost:3001, and you will be prompted to approve the port. You can also open a new browser window in incognito/private mode, go to localhost:3001, and you will be able to join the room as another player.
 
 ### Contact
