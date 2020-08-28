@@ -29,6 +29,11 @@ Lobby and Gameroom
 
 ### Installation and Usage
 
+** I am currently refactoring the CSS to make Icebreakers more responsive with different screen sizes. At this time it is best viewed in a mobile screen. To do this, press ``` shift command c ``` to open the console, and press the mobile screen icon in the upper left corner, seen in the screenshot below in blue. **
+
+<img width="560" alt="Screen Shot 2020-08-27 at 12 38 07 PM" src="https://user-images.githubusercontent.com/60520496/91590398-f8c35e80-e920-11ea-8c88-81c5cbfa948a.png">
+
+
 - Clone the [backend](https://github.com/DavidWolff218/icebreakers_backend)
 - Install gems
 ```
