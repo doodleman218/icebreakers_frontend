@@ -8,6 +8,11 @@ Icebreakers is a social party game web app. It's quick and easy for anybody to p
 [Rails API github](https://github.com/DavidWolff218/icebreakers_backend)
 
 
+### Future Updates
+- Implementing more validation checks for room and user names
+- Creating a voting feature where users are presented with two options and can vote on the next question
+- Allowing the host to remove questions from the game
+
 ### Screenshots
 Homepage and Login
 
