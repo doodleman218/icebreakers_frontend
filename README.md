@@ -27,7 +27,7 @@ Lobby and Gameroom
 
 <img width="462" alt="Screen Shot 2020-08-27 at 11 33 16 AM" src="https://user-images.githubusercontent.com/60520496/91499831-d03b5600-e887-11ea-858e-077d466be0de.png">
 
-### Installation and Usage
+### Installation
 
 ** I am currently refactoring the CSS to make Icebreakers more responsive with different screen sizes. At this time it is best viewed in a mobile screen. To do this, press ``` shift command c ``` to open the console, and press the mobile screen icon in the upper left corner, seen in the screenshot below in blue. **
 
