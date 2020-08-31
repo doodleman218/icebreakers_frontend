@@ -22,7 +22,8 @@ export class navBar extends Component {
 
   render() {
     return (
-      <div className="NavBar">
+      <Container className="NavBar">
+        <Row>
         <Col className="col-4">
         {this.logOutBtn()}
         </Col>
@@ -35,7 +36,8 @@ export class navBar extends Component {
           <div className="navBarInfoRoom">Room</div>
           <div className="navBarInfoName">{this.props.room} </div>
         </Col>
-      </div>
+        </Row>
+      </Container>
     );
   }
 }
