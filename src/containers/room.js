@@ -3,6 +3,8 @@ import { ActionCableConsumer } from "@thrash-industries/react-actioncable-provid
 import AllUsers from "../components/allUsers";
 import GameText from "../components/gameText";
 import NavBar from "../components/navBar";
+import { Container, Row, Col } from "react-bootstrap";
+
 
 export class room extends React.Component {
   state = {
@@ -212,8 +214,8 @@ export class room extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <Container>
+        <Row>
           <NavBar
             room={this.props.roomName}
             logoutBtn={this.logoutBtn}
@@ -222,7 +224,7 @@ export class room extends React.Component {
             host={this.props.hostID}
             player={this.props.currentUser.username}
           ></NavBar>
-        </div>
+        </Row>
         <br></br>
         <AllUsers
           users={this.state.allUsers}
@@ -240,7 +242,7 @@ export class room extends React.Component {
           <br></br>
           {this.startButton()}
         </ActionCableConsumer>
-      </div>
+      </Container>
     );
   }
 }
