@@ -214,7 +214,7 @@ export class room extends React.Component {
 
   render() {
     return (
-      <Container>
+      <div className= "container-fluid">
         <Row>
           <NavBar
             room={this.props.roomName}
@@ -242,7 +242,7 @@ export class room extends React.Component {
           <br></br>
           {this.startButton()}
         </ActionCableConsumer>
-      </Container>
+      </div>
     );
   }
 }
