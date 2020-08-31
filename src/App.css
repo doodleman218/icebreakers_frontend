@@ -57,7 +57,7 @@ body {
 .NavBar {
   background-color:#0B9ED9  ;
   display: flex ;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: 10px;
   align-items: center;
   border-bottom: 7px solid #021859;
@@ -65,11 +65,9 @@ body {
 }
 
 .navLogo{
-  position: absolute;
+  /* position: absolute; */
   height: auto;
-  width: 40%;
-  right: 29%;
-  top: 2%;
+  width: 70%;
 }
 
 /* 
