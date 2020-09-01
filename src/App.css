@@ -330,8 +330,14 @@ body {
   max-width: 400px;
 }
 
-.room-row-seperator {
+.hundred-row-seperator {
   height: 100px;
 }
+
+.seventy-five-row-seperator {
+  height: 75px;
+}
+
+
 
 

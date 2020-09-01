@@ -239,9 +239,9 @@ export class room extends React.Component {
         >
           <br></br>
           <Col className="align-self-center">
-          <Row className="room-row-seperator"></Row>
+          <Row className="seventy-five-row-seperator"></Row>
           {this.screenText()}
-          <br></br>
+          <Row className="seventy-five-row-seperator"></Row>
           {this.startButton()}
           </Col>
         </ActionCableConsumer>
