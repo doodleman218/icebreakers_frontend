@@ -330,4 +330,8 @@ body {
   max-width: 400px;
 }
 
+.room-row-seperator {
+  height: 100px;
+}
+
 
