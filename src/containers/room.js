@@ -176,7 +176,7 @@ export class room extends React.Component {
   screenText = () => {
     if (this.props.gameStarted === true) {
       return (
-        <div>
+        
           <GameText
             currentPlayer={this.state.currentPlayer}
             currentQuestion={this.state.currentQuestion}
@@ -188,7 +188,7 @@ export class room extends React.Component {
             playerButton={this.playerButton}
             hostButton={this.hostButton}
           />
-        </div>
+        
       );
     }
     if (
@@ -214,7 +214,7 @@ export class room extends React.Component {
 
   render() {
     return (
-      <div className= "container-fluid">
+      <div className= "fluid-container">
         <Row>
           <NavBar
             room={this.props.roomName}
@@ -238,9 +238,11 @@ export class room extends React.Component {
           onReceived={this.handleReceived}
         >
           <br></br>
+          <Col className="align-self-center">
           {this.screenText()}
           <br></br>
           {this.startButton()}
+          </Col>
         </ActionCableConsumer>
       </div>
     );

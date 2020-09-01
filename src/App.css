@@ -138,10 +138,10 @@ body {
 }
 
 .welcomeTextHost {
-  position: absolute;
+  /* position: absolute;
   top: 40%;
   margin-left: 8px;
-  margin-right: 8px;
+  margin-right: 8px; */
 }
 
 .welcomeTextHostSpan {
@@ -155,10 +155,10 @@ body {
 }
 
 .welcomeTextUser {
-  position: absolute;
+  /* position: absolute;
   margin-left: 8px;
   margin-right: 8px;
-  top: 40%
+  top: 40% */
 }
 
 .currentPlayer {
