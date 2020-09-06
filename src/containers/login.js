@@ -91,7 +91,6 @@ export class login extends Component {
         </Col>
         <Col className="col"></Col>
         </Row>
-      {/* </div> */}
       </Container>
     );
   }

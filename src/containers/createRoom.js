@@ -51,21 +51,21 @@ export class createRoom extends Component {
         <Row>
           <Col className="col"></Col>
           <Col className="max-width-400 col-10 align-self-center">
-            <form className="createRoomForm" onSubmit={this.handleSubmit}>
-              <label className="formLabel">Create Room Name</label>
+            <form className="create-room-form" onSubmit={this.handleSubmit}>
+              <label className="form-label">Create Room Name</label>
               <br></br>
               <input
-                className="formInput"
+                className="form-input"
                 id="rname"
                 name="room_name"
                 value={this.state.room_name}
                 onChange={this.handleChange}
               />{" "}
               <br></br>
-              <label className="formLabel">Create Password</label>
+              <label className="form-label">Create Password</label>
               <br></br>
               <input
-                className="formInput"
+                className="form-input"
                 id="pword"
                 name="password"
                 type="password"
@@ -73,10 +73,10 @@ export class createRoom extends Component {
                 onChange={this.handleChange}
               />
               <br></br>
-              <label className="formLabel">Create Player Name</label>
+              <label className="form-label">Create Player Name</label>
               <br></br>
               <input
-                className="formInput"
+                className="form-input"
                 id="uname"
                 name="username"
                 type="text"
@@ -84,7 +84,7 @@ export class createRoom extends Component {
                 onChange={this.handleChange}
               />
               <br></br>
-              <button className="formBtn" type="submit">
+              <button className="form-btn" type="submit">
                 Create your Room
               </button>
               <br></br>
@@ -99,44 +99,3 @@ export class createRoom extends Component {
 
 export default createRoom;
 
-{
-  /* <Container className="createRoomDiv">
-        <Row className="boot-home-logo">
-        <img className="img-fluid" src={icebreakersv8} alt="icebreakers logo" />
-        </Row>
-        <form className="createRoomForm" onSubmit={this.handleSubmit}>
-          <label className="formLabel">Create Room Name</label>
-          <input
-            className="formInput"
-            id="rname"
-            name="room_name"
-            value={this.state.room_name}
-            onChange={this.handleChange}
-          />
-          <label className="formLabel">Create Password</label>
-          <input
-            className="formInput"
-            id="pword"
-            name="password"
-            type="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <label className="formLabel">Create Player Name</label>
-          <input
-            className="formInput"
-            id="uname"
-            name="username"
-            type="text"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-          <br></br>
-          <button className="formBtn" type="submit">
-            Create your Room
-          </button>
-        </form>
-      </Container>
-    );
-  } */
-}
