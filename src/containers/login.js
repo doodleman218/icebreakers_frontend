@@ -45,7 +45,6 @@ export class login extends Component {
   render() {
     return (
       <Container>
-      {/* <div className="createRoomDiv"> */}
         <Row className="boot-home-logo">
           <img
             className="img-fluid"
@@ -56,36 +55,36 @@ export class login extends Component {
         <Row>
           <Col className="col"></Col>
           <Col className="max-width-400 col-10 align-self-center">
-        <form className="createRoomForm" onSubmit={this.handleSubmit}>
-          <label className="formLabel">Enter Room Name</label>
+        <form className="create-room-form" onSubmit={this.handleSubmit}>
+          <label className="form-label">Enter Room Name</label>
           <br></br>
           <input
-            className="formInput"
+            className="form-input"
             name="room_name"
             value={this.state.room_name}
             onChange={this.handleChange}
           />
           <br></br>
-          <label className="formLabel">Enter Password</label>
+          <label className="form-label">Enter Password</label>
           <br></br>
           <input
-            className="formInput"
+            className="form-input"
             name="password"
             type="password"
             value={this.state.password}
             onChange={this.handleChange}
           />
           <br></br>
-          <label className="formLabel">Create Player Name</label>
+          <label className="form-label">Create Player Name</label>
           <br></br>
           <input
-            className="formInput"
+            className="form-input"
             name="username"
             value={this.state.username}
             onChange={this.handleChange}
           />
           <br></br>
-          <button className="formBtn" type="submit">
+          <button className="form-btn" type="submit">
             Join a Room
           </button>
         </form>

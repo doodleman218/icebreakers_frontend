@@ -44,20 +44,4 @@ export class home extends Component {
 
 export default home;
 
-{
-  /* <Container>
-<Row>
-<img className="homeLogo"src={icebreakersv8} alt="icebreakers logo"/>
-</Row>
-<Row className="homeBtnContainer" >
-  <Link to="/create_room">
-    <button className="homeCreateBtn"><h3 className="homeCreateBtnText">Create a Room</h3></button>
-  </Link>
-</Row>
-<Row>
-  <Link to="/login">
-    <button className="homeJoinBtn"><h3 className="homeJoinBtnText">Join a Room</h3></button>
-  </Link>
-</Row>
-</Container> */
-}
+

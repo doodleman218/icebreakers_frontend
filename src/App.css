@@ -256,7 +256,7 @@ body {
   padding-bottom: 0px;
 }
 
-.createRoomForm {
+.create-room-form {
 
   border: 7px solid #021859;
   border-radius: 8px;
@@ -285,16 +285,16 @@ body {
   }
 } */
 
-.formInput{
+.form-input{
   width: 250px;
 }
 
-.formLabel {
+.form-label {
   margin-bottom: 2px;
   font-weight: 700;
 }
 
-.formBtn {
+.form-btn {
   border-radius: 10px;
   border:  5px solid #F25CA2;
   box-shadow: 3px 3px #021859;
