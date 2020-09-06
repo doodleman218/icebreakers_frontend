@@ -22,19 +22,19 @@ export class navBar extends Component {
 
   render() {
     return (
-      <Row className="NavBar ">
+      <Row className="nav-bar ">
         {/* <Row> */}
         <Col className="col-4">
         {this.logOutBtn()}
         </Col>
         <Col className="col-4 align-self-center">
         {/* <div className="NavBarTitle"> */}
-          <img className="navLogo" src={icebreakersv8} alt="icebreakers logo" />
+          <img className="nav-logo" src={icebreakersv8} alt="icebreakers logo" />
         {/* </div> */}
         </Col>
-        <Col className="col-4 NavBarInfo">
-          <div className="navBarInfoRoom">Room</div>
-          <div className="navBarInfoName">{this.props.room} </div>
+        <Col className="col-4 nav-bar-info">
+          <div className="nav-bar-info-room">Room</div>
+          <div className="nav-bar-info-name">{this.props.room} </div>
         </Col>
         {/* </Row> */}
       </Row>

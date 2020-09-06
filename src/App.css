@@ -54,7 +54,7 @@ body {
     /* height: auto; */
 
 
-.NavBar {
+.nav-bar {
   background-color:#0B9ED9  ;
   display: flex ;
   /* justify-content: space-between; */
@@ -64,7 +64,7 @@ body {
   border-top: 7px solid #021859;
 }
 
-.navLogo{
+.nav-logo{
   /* position: absolute; */
   height: auto;
   width: 70%;
@@ -81,7 +81,7 @@ body {
   }
 } */
 
-.NavBarInfo {
+.nav-bar-info {
   color: #021859;
   display: flex;
   flex-direction: column;
@@ -92,7 +92,7 @@ body {
 }
 
 
-.navBarInfoRoom{
+.nav-bar-info-room{
   color: #021859;
   font-weight: 700;
   border-bottom:  2px solid #021859;
