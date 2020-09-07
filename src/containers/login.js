@@ -42,6 +42,44 @@ export class login extends Component {
     this.setState({ room_name: "", password: "", username: "" });
   };
 
+  renderForm = () => {
+    return (
+      <form className="create-room-form" onSubmit={this.handleSubmit}>
+        <label className="form-label">Enter Room Name</label>
+        <br></br>
+        <input
+          className="form-input"
+          name="room_name"
+          value={this.state.room_name}
+          onChange={this.handleChange}
+        />
+        <br></br>
+        <label className="form-label">Enter Password</label>
+        <br></br>
+        <input
+          className="form-input"
+          name="password"
+          type="password"
+          value={this.state.password}
+          onChange={this.handleChange}
+        />
+        <br></br>
+        <label className="form-label">Create Player Name</label>
+        <br></br>
+        <input
+          className="form-input"
+          name="username"
+          value={this.state.username}
+          onChange={this.handleChange}
+        />
+        <br></br>
+        <button className="form-btn" type="submit">
+          Join a Room
+        </button>
+      </form>
+    );
+  };
+
   render() {
     return (
       <Container>
@@ -55,41 +93,9 @@ export class login extends Component {
         <Row>
           <Col className="col"></Col>
           <Col className="max-width-400 col-10 align-self-center">
-        <form className="create-room-form" onSubmit={this.handleSubmit}>
-          <label className="form-label">Enter Room Name</label>
-          <br></br>
-          <input
-            className="form-input"
-            name="room_name"
-            value={this.state.room_name}
-            onChange={this.handleChange}
-          />
-          <br></br>
-          <label className="form-label">Enter Password</label>
-          <br></br>
-          <input
-            className="form-input"
-            name="password"
-            type="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <br></br>
-          <label className="form-label">Create Player Name</label>
-          <br></br>
-          <input
-            className="form-input"
-            name="username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-          <br></br>
-          <button className="form-btn" type="submit">
-            Join a Room
-          </button>
-        </form>
-        </Col>
-        <Col className="col"></Col>
+            {this.renderForm()}
+          </Col>
+          <Col className="col"></Col>
         </Row>
       </Container>
     );
