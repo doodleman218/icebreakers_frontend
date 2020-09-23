@@ -35,6 +35,7 @@ export class room extends React.Component {
   };
 
   handleClick = () => {
+    debugger
     const reqObj = {
       method: "PATCH",
       headers: {
@@ -214,7 +215,7 @@ export class room extends React.Component {
 
   render() {
     return (
-      <div className= "fluid-container">
+      <div >
         <Row>
           <NavBar
             room={this.props.roomName}

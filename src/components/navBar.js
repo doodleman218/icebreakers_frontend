@@ -24,15 +24,15 @@ export class navBar extends Component {
     return (
       <Row className="nav-bar ">
         {/* <Row> */}
-        <Col className="col-4">
+        <Col className="col-3">
         {this.logOutBtn()}
         </Col>
-        <Col className="col-4 align-self-center">
+        <Col className="col-6 align-self-center">
         {/* <div className="NavBarTitle"> */}
           <img className="nav-logo" src={icebreakersv8} alt="icebreakers logo" />
         {/* </div> */}
         </Col>
-        <Col className="col-4 nav-bar-info">
+        <Col className="col-3 nav-bar-info">
           <div className="nav-bar-info-room">Room</div>
           <div className="nav-bar-info-name">{this.props.room} </div>
         </Col>
