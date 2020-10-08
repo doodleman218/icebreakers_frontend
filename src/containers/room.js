@@ -35,7 +35,6 @@ export class room extends React.Component {
   };
 
   handleClick = () => {
-    debugger
     const reqObj = {
       method: "PATCH",
       headers: {
@@ -216,7 +215,7 @@ export class room extends React.Component {
   render() {
     return (
       <div >
-        <Row>
+        
           <NavBar
             room={this.props.roomName}
             logoutBtn={this.logoutBtn}
@@ -225,7 +224,7 @@ export class room extends React.Component {
             host={this.props.hostID}
             player={this.props.currentUser.username}
           ></NavBar>
-        </Row>
+       
         <br></br>
         <AllUsers
           users={this.state.allUsers}

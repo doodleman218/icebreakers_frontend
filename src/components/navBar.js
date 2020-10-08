@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import icebreakersv8 from "../logo/icebreakersv8.png";
 import { Container, Row, Col } from "react-bootstrap";
 
-
 export class navBar extends Component {
   logOutBtn = () => {
     if (this.props.currentUser === this.props.host) {
@@ -22,33 +21,36 @@ export class navBar extends Component {
 
   render() {
     return (
-      <Row className="nav-bar ">
-        {/* <Row> */}
-        <Col className="col-3">
-        {this.logOutBtn()}
-        </Col>
-        <Col className="col-6 align-self-center">
-        {/* <div className="NavBarTitle"> */}
-          <img className="nav-logo" src={icebreakersv8} alt="icebreakers logo" />
-        {/* </div> */}
-        </Col>
-        <Col className="col-3 nav-bar-info">
-          <div className="nav-bar-info-room">Room</div>
-          <div className="nav-bar-info-name">{this.props.room} </div>
-        </Col>
-        {/* </Row> */}
-      </Row>
+      
+        <Row className="nav-bar">
+          <Col className="col-3">{this.logOutBtn()}</Col>
+          <Col className="col-6 ">
+            {/* <div className="NavBarTitle"> */}
+            <img
+              className="nav-logo"
+              src={icebreakersv8}
+              alt="icebreakers logo"
+            />
+            {/* </div> */}
+          </Col>
+          <Col className="col-3 nav-bar-info">
+            <div className="">Room</div>
+            <div className="">{this.props.room} </div>
+          </Col>
+        </Row>
+      
     );
   }
 }
 
 export default navBar;
 
-
-{/* <div className="NavBar">
+{
+  /* <div className="NavBar">
 {this.logOutBtn()}
 <Col className="align-self-center">
-{/* <div className="NavBarTitle"> */}
+{/* <div className="NavBarTitle"> */
+}
 //   <img className="navLogo" src={icebreakersv8} alt="icebreakers logo" />
 // {/* </div> */}
 // </Col>
