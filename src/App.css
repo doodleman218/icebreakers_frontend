@@ -38,22 +38,6 @@ body {
 }
 
 
-/* @media only screen and (min-width: 768px){
-  .formLogo {
-    width: 70%;
-
-    position: absolute;
-    left: 15%;
-    top: 3%
-
-  }
-} */
-  /* display: block;
-  margin-left: auto;
-  margin-right: auto; */
-    /* height: auto; */
-
-
 .nav-bar {
   background-color:#0B9ED9  ;
   /* display: flex ; */

@@ -21,24 +21,26 @@ export class navBar extends Component {
 
   render() {
     return (
-      
-        <Row className="nav-bar">
-          <Col className="col-3">{this.logOutBtn()}</Col>
-          <Col className="col-6 ">
-            {/* <div className="NavBarTitle"> */}
-            <img
-              className="nav-logo"
-              src={icebreakersv8}
-              alt="icebreakers logo"
-            />
-            {/* </div> */}
-          </Col>
-          <Col className="col-3 nav-bar-info">
-            <div className="">Room</div>
-            <div className="">{this.props.room} </div>
-          </Col>
-        </Row>
-      
+      <Row className="nav-bar">
+        <Col className="col-3">{this.logOutBtn()}</Col>
+        <Col className="col-6 ">
+          {/* <div className="NavBarTitle"> */}
+          <img
+            className="nav-logo"
+            src={icebreakersv8}
+            alt="icebreakers logo"
+          />
+          {/* </div> */}
+        </Col>
+        <Col className="col-3 nav-bar-info">
+          <Row>
+            <Col className="nav-bar-info-room">Room</Col>
+          </Row>
+          <Row>
+            <Col>{this.props.room}</Col>
+          </Row>
+        </Col>
+      </Row>
     );
   }
 }
