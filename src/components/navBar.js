@@ -34,7 +34,7 @@ export class navBar extends Component {
         </Col>
         <Col className="col-3 nav-bar-info">
           <Row>
-            <Col className="nav-bar-info-room">Room</Col>
+            <Col className="nav-bar-info-room"><span className="nav-bar-info-room-bar">Room</span></Col>
           </Row>
           <Row>
             <Col>{this.props.room}</Col>
