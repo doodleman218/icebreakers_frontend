@@ -34,7 +34,7 @@ export class navBar extends Component {
         </Col>
         <Col className="col-3 nav-bar-info">
           <Row>
-            <Col className="nav-bar-info-room"><span className="nav-bar-info-room-bar">Room</span></Col>
+            <Col><span className="nav-bar-info-room-bar">Room</span></Col>
           </Row>
           <Row>
             <Col>{this.props.room}</Col>
@@ -47,16 +47,3 @@ export class navBar extends Component {
 
 export default navBar;
 
-{
-  /* <div className="NavBar">
-{this.logOutBtn()}
-<Col className="align-self-center">
-{/* <div className="NavBarTitle"> */
-}
-//   <img className="navLogo" src={icebreakersv8} alt="icebreakers logo" />
-// {/* </div> */}
-// </Col>
-// <span className="NavBarInfo">
-//   <div className="navBarInfoRoom">Room</div>
-//   <div className="navBarInfoName">{this.props.room} </div>
-// </span>
