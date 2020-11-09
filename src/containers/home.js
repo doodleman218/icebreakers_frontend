@@ -15,7 +15,7 @@ export class home extends Component {
           />
         </Row>
         <Row>
-          <Col className="col-2"></Col>
+          <Col className="col-2"/>
           <Col className="col align-self-center">
             <Link to="/create_room">
               <button className="homeCreateBtn">
@@ -23,10 +23,10 @@ export class home extends Component {
               </button>
             </Link>
           </Col>
-          <Col className="col-2"></Col>
+          <Col className="col-2"/>
         </Row>
         <Row>
-          <Col className="col-2"></Col>
+          <Col className="col-2"/>
           <Col className="col align-self-center">
             <Link to="/login">
               <button className="homeJoinBtn">
@@ -34,9 +34,9 @@ export class home extends Component {
               </button>
             </Link>
           </Col>
-          <Col className="col-2"></Col>
+          <Col className="col-2"/>
         </Row>
-        <Row className="boot-home-row"></Row>
+        <Row className="boot-home-row"/>
       </Container>
     );
   }

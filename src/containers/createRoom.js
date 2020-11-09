@@ -92,11 +92,11 @@ export class createRoom extends Component {
           />
         </Row>
         <Row>
-          <Col className="col"></Col>
+          <Col className="col"/>
           <Col className="max-width-400 col-10 align-self-center">
             {this.renderForm()}
           </Col>
-          <Col className="col"></Col>
+          <Col className="col"/>
         </Row>
       </Container>
     );

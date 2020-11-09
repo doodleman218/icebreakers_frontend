@@ -3,7 +3,7 @@ import { ActionCableConsumer } from "@thrash-industries/react-actioncable-provid
 import AllUsers from "../components/allUsers";
 import GameText from "../components/gameText";
 import NavBar from "../components/navBar";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 
 export class room extends React.Component {
@@ -223,13 +223,13 @@ export class room extends React.Component {
             currentUser={this.props.currentUser.id}
             host={this.props.hostID}
             player={this.props.currentUser.username}
-          ></NavBar>
+          />
        
         <br></br>
         <AllUsers
           users={this.state.allUsers}
           gameStarted={this.props.gameStarted}
-        ></AllUsers>
+        />
         <ActionCableConsumer
           channel={{
             channel: "UsersChannel",
@@ -239,9 +239,9 @@ export class room extends React.Component {
         >
           <br></br>
           <Col className="align-self-center">
-          <Row className="seventy-five-row-seperator"></Row>
+          <Row className="seventy-five-row-seperator"/>
           {this.screenText()}
-          <Row className="seventy-five-row-seperator"></Row>
+          <Row className="seventy-five-row-seperator"/>
           {this.startButton()}
           </Col>
         </ActionCableConsumer>
