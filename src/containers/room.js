@@ -10,6 +10,8 @@ export class room extends React.Component {
   state = {
     currentPlayer: "",
     currentQuestion: "",
+    votingQuestionA: "",
+    votingQuestionB: "",
     reshufflingUsers: false,
     reshufflingQuestions: false,
     allUsers: [],
@@ -19,8 +21,11 @@ export class room extends React.Component {
     if (this.props.gameStarted === false) {
       this.props.startGame();
     }
+    console.log(resp)
     const currentPlayer = resp.currentPlayer;
     const currentQuestion = resp.currentQuestion;
+    const votingQuestionA = resp.votingQuestionA;
+    const votingQuestionB = resp.votingQuestionB;
     const reshufflingUsers = resp.reshufflingUsers;
     const reshufflingQuestions = resp.reshufflingQuestions;
     const allUsers = resp.allUsers;
@@ -28,10 +33,13 @@ export class room extends React.Component {
     this.setState({
       currentPlayer: currentPlayer.username,
       currentQuestion: currentQuestion,
+      votingQuestionA: votingQuestionA,
+      votingQuestionB: votingQuestionB,
       reshufflingUsers: reshufflingUsers,
       reshufflingQuestions: reshufflingQuestions,
       allUsers: allUsers,
     });
+    console.log("TEST", this.state.votingQuestionA, this.state.votingQuestionB)
   };
 
   handleClick = () => {
