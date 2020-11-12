@@ -2,8 +2,20 @@ import React, { Component } from "react";
 
 export class gameText extends Component {
   renderGameText = () => {
+    console.log("TEXT", this.props.votingQuestionA, this.props.votingQuestionB)
     let player = this.props.currentPlayer;
     let question = this.props.currentQuestion.content;
+    if (this.props.votingQuestionA){
+      return (
+        <div>
+          <h3 className="currentPlayer">{player}</h3>
+          <h3 className="currentQuestion">{"HELLO"}</h3>
+          <br></br>
+          {this.props.playerButton()}
+          {this.props.hostButton()}
+        </div>
+      );
+    } else {
     return (
       <div>
         <h3 className="currentPlayer">{player}</h3>
@@ -13,6 +25,7 @@ export class gameText extends Component {
         {this.props.hostButton()}
       </div>
     );
+    }
   };
 
   callReset = (resetFunc) => {

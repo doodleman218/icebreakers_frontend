@@ -21,7 +21,6 @@ export class room extends React.Component {
     if (this.props.gameStarted === false) {
       this.props.startGame();
     }
-    console.log(resp)
     const currentPlayer = resp.currentPlayer;
     const currentQuestion = resp.currentQuestion;
     const votingQuestionA = resp.votingQuestionA;
@@ -39,7 +38,7 @@ export class room extends React.Component {
       reshufflingQuestions: reshufflingQuestions,
       allUsers: allUsers,
     });
-    console.log("TEST", this.state.votingQuestionA, this.state.votingQuestionB)
+    // console.log("TEST", this.state.votingQuestionA, this.state.votingQuestionB)
   };
 
   handleClick = () => {
@@ -188,6 +187,8 @@ export class room extends React.Component {
           <GameText
             currentPlayer={this.state.currentPlayer}
             currentQuestion={this.state.currentQuestion}
+            votingQuestionA={this.state.votingQuestionA}
+            votingQuestionB={this.state.votingQuestionB}
             reshufflingUsers={this.state.reshufflingUsers}
             reshufflingQuestions={this.state.reshufflingQuestions}
             resetUsersShuffle={this.resetUsersShuffle}
