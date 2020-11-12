@@ -4,14 +4,13 @@ export class gameText extends Component {
   renderGameText = () => {
     console.log("TEXT", this.props.votingQuestionA, this.props.votingQuestionB)
     let player = this.props.currentPlayer;
-    let question = this.props.currentQuestion.content;
     if (this.props.votingQuestionA){
       return (
         <div>
           <h3 className="currentPlayer">{player}</h3>
-          <h3 className="currentQuestion">{"HELLO"}</h3>
+          <h3 className="currentQuestion"><button>{this.props.votingQuestionA.content}</button></h3>
+          <h3 className="currentQuestion"><button>{this.props.votingQuestionB.content}</button></h3>
           <br></br>
-          {this.props.playerButton()}
           {this.props.hostButton()}
         </div>
       );
@@ -19,7 +18,7 @@ export class gameText extends Component {
     return (
       <div>
         <h3 className="currentPlayer">{player}</h3>
-        <h3 className="currentQuestion">{question}</h3>
+        <h3 className="currentQuestion">{this.props.currentQuestion.content}</h3>
         <br></br>
         {this.props.playerButton()}
         {this.props.hostButton()}
