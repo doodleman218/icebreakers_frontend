@@ -38,7 +38,6 @@ export class room extends React.Component {
       reshufflingQuestions: reshufflingQuestions,
       allUsers: allUsers,
     });
-    // console.log("TEST", this.state.votingQuestionA, this.state.votingQuestionB)
   };
 
   handleClick = () => {

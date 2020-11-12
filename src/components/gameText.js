@@ -1,29 +1,30 @@
 import React, { Component } from "react";
+import Voting from "./voting";
 
 export class gameText extends Component {
   renderGameText = () => {
-    console.log("TEXT", this.props.votingQuestionA, this.props.votingQuestionB)
     let player = this.props.currentPlayer;
-    if (this.props.votingQuestionA){
+    if (this.props.votingQuestionA) {
+      return (
+        <Voting
+          currentPlayer={this.props.currentPlayer}
+          votingQuestionA={this.props.votingQuestionA}
+          votingQuestionB={this.props.votingQuestionB}
+          hostButton={this.props.hostButton}
+        />
+      );
+    } else {
       return (
         <div>
           <h3 className="currentPlayer">{player}</h3>
-          <h3 className="currentQuestion"><button>{this.props.votingQuestionA.content}</button></h3>
-          <h3 className="currentQuestion"><button>{this.props.votingQuestionB.content}</button></h3>
+          <h3 className="currentQuestion">
+            {this.props.currentQuestion.content}
+          </h3>
           <br></br>
+          {this.props.playerButton()}
           {this.props.hostButton()}
         </div>
       );
-    } else {
-    return (
-      <div>
-        <h3 className="currentPlayer">{player}</h3>
-        <h3 className="currentQuestion">{this.props.currentQuestion.content}</h3>
-        <br></br>
-        {this.props.playerButton()}
-        {this.props.hostButton()}
-      </div>
-    );
     }
   };
 
