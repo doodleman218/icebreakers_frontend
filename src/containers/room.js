@@ -75,7 +75,18 @@ export class room extends React.Component {
   };
 
   handleVote = (vote) => {
-    console.log(vote)
+    const reqObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          vote_id: vote
+        },
+      }),
+    };
+    fetch(`http://localhost:3000/users/voting/foo`, reqObj);
   }
 
   startButton = () => {
