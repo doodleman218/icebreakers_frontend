@@ -74,6 +74,10 @@ export class room extends React.Component {
     fetch(`http://localhost:3000/users/start/foo`, reqObj);
   };
 
+  handleVote = (vote) => {
+    console.log(vote)
+  }
+
   startButton = () => {
     if (
       this.props.gameStarted === false &&
@@ -195,6 +199,7 @@ export class room extends React.Component {
             resetUsersAndQuestionsShuffle={this.resetUsersAndQuestionsShuffle}
             playerButton={this.playerButton}
             hostButton={this.hostButton}
+            handleVote={this.handleVote}
           />
         
       );

@@ -11,6 +11,7 @@ export class gameText extends Component {
           votingQuestionA={this.props.votingQuestionA}
           votingQuestionB={this.props.votingQuestionB}
           hostButton={this.props.hostButton}
+          handleVote={this.props.handleVote}
         />
       );
     } else {
