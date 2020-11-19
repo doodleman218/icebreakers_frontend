@@ -82,7 +82,9 @@ export class room extends React.Component {
       },
       body: JSON.stringify({
         user: {
-          vote_id: vote
+          room: this.props.match.params.id,
+          vote_id: vote,
+          currentPlayer: this.state.currentPlayer
         },
       }),
     };
@@ -105,7 +107,7 @@ export class room extends React.Component {
   };
 
   hostButton = () => {
-    if (this.props.currentUser.id === this.props.hostID) {
+    if (this.props.currentUser.id === this.props.hostID && !this.state.votingQuestionA ) {
       return (
         <button className="MainBtn" onClick={this.handleClick}>
           <h3 className="mainBtnText">NEXT QUESTION</h3>
