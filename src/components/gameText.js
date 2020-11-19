@@ -12,6 +12,7 @@ export class gameText extends Component {
           votingQuestionB={this.props.votingQuestionB}
           hostButton={this.props.hostButton}
           handleVote={this.props.handleVote}
+          timer={this.props.timer}
         />
       );
     } else {

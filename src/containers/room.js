@@ -15,6 +15,7 @@ export class room extends React.Component {
     reshufflingUsers: false,
     reshufflingQuestions: false,
     allUsers: [],
+    timer: false
   };
 
   handleReceived = (resp) => {
@@ -107,7 +108,7 @@ export class room extends React.Component {
   };
 
   hostButton = () => {
-    if (this.props.currentUser.id === this.props.hostID && !this.state.votingQuestionA ) {
+    if (this.props.currentUser.id === this.props.hostID) {
       return (
         <button className="MainBtn" onClick={this.handleClick}>
           <h3 className="mainBtnText">NEXT QUESTION</h3>
@@ -196,6 +197,12 @@ export class room extends React.Component {
     });
   };
 
+  resetTimer = () => {
+    this.setState({
+      timer: false
+    })
+  }
+
   screenText = () => {
     if (this.props.gameStarted === true) {
       return (
@@ -207,12 +214,14 @@ export class room extends React.Component {
             votingQuestionB={this.state.votingQuestionB}
             reshufflingUsers={this.state.reshufflingUsers}
             reshufflingQuestions={this.state.reshufflingQuestions}
+            timer={this.state.timer}
             resetUsersShuffle={this.resetUsersShuffle}
             resetQuestionsShuffle={this.resetQuestionsShuffle}
             resetUsersAndQuestionsShuffle={this.resetUsersAndQuestionsShuffle}
             playerButton={this.playerButton}
             hostButton={this.hostButton}
             handleVote={this.handleVote}
+            resetTime={this.resetTimer}
           />
         
       );
