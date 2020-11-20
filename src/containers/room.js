@@ -5,7 +5,6 @@ import GameText from "../components/gameText";
 import NavBar from "../components/navBar";
 import { Row, Col } from "react-bootstrap";
 
-
 export class room extends React.Component {
   state = {
     currentPlayer: "",
@@ -15,7 +14,8 @@ export class room extends React.Component {
     reshufflingUsers: false,
     reshufflingQuestions: false,
     allUsers: [],
-    timer: false
+    timerRunning: false,
+    timerSeconds: 5,
   };
 
   handleReceived = (resp) => {
@@ -85,12 +85,12 @@ export class room extends React.Component {
         user: {
           room: this.props.match.params.id,
           vote_id: vote,
-          currentPlayer: this.state.currentPlayer
+          currentPlayer: this.state.currentPlayer,
         },
       }),
     };
     fetch(`http://localhost:3000/users/voting/foo`, reqObj);
-  }
+  };
 
   startButton = () => {
     if (
@@ -197,33 +197,44 @@ export class room extends React.Component {
     });
   };
 
+  runTimer = () => {
+    setInterval(() => {
+      if (this.state.timerSeconds > 0) {
+        this.setState({
+          timerSeconds: this.state.timerSeconds - 1,
+        });
+      }
+    }, 1000);
+  };
+
   resetTimer = () => {
     this.setState({
-      timer: false
-    })
-  }
+      timerRunning: false,
+      timerSeconds: 20,
+    });
+  };
 
   screenText = () => {
     if (this.props.gameStarted === true) {
       return (
-        
-          <GameText
-            currentPlayer={this.state.currentPlayer}
-            currentQuestion={this.state.currentQuestion}
-            votingQuestionA={this.state.votingQuestionA}
-            votingQuestionB={this.state.votingQuestionB}
-            reshufflingUsers={this.state.reshufflingUsers}
-            reshufflingQuestions={this.state.reshufflingQuestions}
-            timer={this.state.timer}
-            resetUsersShuffle={this.resetUsersShuffle}
-            resetQuestionsShuffle={this.resetQuestionsShuffle}
-            resetUsersAndQuestionsShuffle={this.resetUsersAndQuestionsShuffle}
-            playerButton={this.playerButton}
-            hostButton={this.hostButton}
-            handleVote={this.handleVote}
-            resetTime={this.resetTimer}
-          />
-        
+        <GameText
+          currentPlayer={this.state.currentPlayer}
+          currentQuestion={this.state.currentQuestion}
+          votingQuestionA={this.state.votingQuestionA}
+          votingQuestionB={this.state.votingQuestionB}
+          reshufflingUsers={this.state.reshufflingUsers}
+          reshufflingQuestions={this.state.reshufflingQuestions}
+          timerRunning={this.state.timerRunning}
+          timerSeconds={this.state.timerSeconds}
+          resetUsersShuffle={this.resetUsersShuffle}
+          resetQuestionsShuffle={this.resetQuestionsShuffle}
+          resetUsersAndQuestionsShuffle={this.resetUsersAndQuestionsShuffle}
+          playerButton={this.playerButton}
+          hostButton={this.hostButton}
+          handleVote={this.handleVote}
+          resetTime={this.resetTimer}
+          runTimer={this.runTimer}
+        />
       );
     }
     if (
@@ -249,17 +260,16 @@ export class room extends React.Component {
 
   render() {
     return (
-      <div >
-        
-          <NavBar
-            room={this.props.roomName}
-            logoutBtn={this.logoutBtn}
-            endGameBtn={this.endGameBtn}
-            currentUser={this.props.currentUser.id}
-            host={this.props.hostID}
-            player={this.props.currentUser.username}
-          />
-       
+      <div>
+        <NavBar
+          room={this.props.roomName}
+          logoutBtn={this.logoutBtn}
+          endGameBtn={this.endGameBtn}
+          currentUser={this.props.currentUser.id}
+          host={this.props.hostID}
+          player={this.props.currentUser.username}
+        />
+
         <br></br>
         <AllUsers
           users={this.state.allUsers}
@@ -274,10 +284,10 @@ export class room extends React.Component {
         >
           <br></br>
           <Col className="align-self-center">
-          <Row className="seventy-five-row-seperator"/>
-          {this.screenText()}
-          <Row className="seventy-five-row-seperator"/>
-          {this.startButton()}
+            <Row className="seventy-five-row-seperator" />
+            {this.screenText()}
+            <Row className="seventy-five-row-seperator" />
+            {this.startButton()}
           </Col>
         </ActionCableConsumer>
       </div>
