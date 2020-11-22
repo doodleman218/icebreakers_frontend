@@ -15,6 +15,7 @@ export class gameText extends Component {
           timerRunning={this.props.timerRunning}
           runTimer={this.props.runTimer}
           timerSeconds={this.props.timerSeconds}
+          resetTimer={this.props.resetTimer}
         />
       );
     } else {

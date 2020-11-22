@@ -16,6 +16,7 @@ export class room extends React.Component {
     allUsers: [],
     timerRunning: false,
     timerSeconds: 5,
+    timerIntervalID: ""
   };
 
   handleReceived = (resp) => {
@@ -198,18 +199,24 @@ export class room extends React.Component {
   };
 
   runTimer = () => {
-    setInterval(() => {
+    const intervalID = setInterval(() => {
       if (this.state.timerSeconds > 0) {
-        this.setState({
+          this.setState({
           timerSeconds: this.state.timerSeconds - 1,
+        })
+        this.setState({
+          timerIntervalID: intervalID
         });
+      } else {
+        this.resetTimer()
       }
     }, 1000);
   };
 
   resetTimer = () => {
+    clearInterval(this.state.timerIntervalID)
     this.setState({
-      timerRunning: false,
+      // timerRunning: false,
       timerSeconds: 20,
     });
   };
@@ -232,7 +239,7 @@ export class room extends React.Component {
           playerButton={this.playerButton}
           hostButton={this.hostButton}
           handleVote={this.handleVote}
-          resetTime={this.resetTimer}
+          resetTimer={this.resetTimer}
           runTimer={this.runTimer}
         />
       );

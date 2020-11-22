@@ -4,6 +4,9 @@ export class voting extends Component {
   componentDidMount() {
     this.props.runTimer();
   }
+  componentWillUnmount(){
+    this.props.resetTimer()
+  }
 
   render() {
     return (
