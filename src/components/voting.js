@@ -26,7 +26,7 @@ export class voting extends Component {
             {this.props.votingQuestionB.content}
           </button>
         </h3>
-        <h3>{this.props.timerSeconds}</h3>;<br></br>
+        <h3>{this.props.timerSeconds}</h3>
       </div>
     );
   }

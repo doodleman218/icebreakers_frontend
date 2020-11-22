@@ -219,7 +219,26 @@ export class room extends React.Component {
       // timerRunning: false,
       timerSeconds: 20,
     });
+    this.timerSelect()
   };
+
+  timerSelect = () => {
+    const reqObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          room: this.props.match.params.id,
+          currentPlayer: this.state.currentPlayer,
+        },
+      }),
+    };
+    fetch(`http://localhost:3000/users/voting_timer/foo`, reqObj);
+  };
+
+
 
   screenText = () => {
     if (this.props.gameStarted === true) {
