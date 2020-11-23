@@ -16,7 +16,7 @@ export class room extends React.Component {
     allUsers: [],
     timerRunning: false,
     timerSeconds: 5,
-    timerIntervalID: ""
+    timerIntervalID: "",
   };
 
   handleReceived = (resp) => {
@@ -201,28 +201,36 @@ export class room extends React.Component {
   runTimer = () => {
     const intervalID = setInterval(() => {
       if (this.state.timerSeconds > 0) {
-          this.setState({
-          timerSeconds: this.state.timerSeconds - 1,
-        })
         this.setState({
-          timerIntervalID: intervalID
+          timerSeconds: this.state.timerSeconds - 1,
+        });
+        this.setState({
+          timerIntervalID: intervalID,
         });
       } else {
-        this.resetTimer()
+        this.resetTimer();
       }
     }, 1000);
   };
 
   resetTimer = () => {
-    clearInterval(this.state.timerIntervalID)
-    this.setState({
-      // timerRunning: false,
-      timerSeconds: 20,
-    });
-    this.timerSelect()
+    clearInterval(this.state.timerIntervalID);
+    if (this.state.timerSeconds === 0) {
+      this.timerSelect();
+      this.setState({
+        // timerRunning: false,
+        timerSeconds: 20,
+      });
+    } else {
+      this.setState({
+        // timerRunning: false,
+        timerSeconds: 20,
+      });
+    }
   };
 
   timerSelect = () => {
+    console.log("timer");
     const reqObj = {
       method: "PATCH",
       headers: {
@@ -237,8 +245,6 @@ export class room extends React.Component {
     };
     fetch(`http://localhost:3000/users/voting_timer/foo`, reqObj);
   };
-
-
 
   screenText = () => {
     if (this.props.gameStarted === true) {
